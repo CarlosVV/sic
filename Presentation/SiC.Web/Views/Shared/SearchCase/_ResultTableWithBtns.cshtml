@@ -1,0 +1,21 @@
+﻿@model Nagnoi.SiC.Web.Models.Case.SearchViewModel
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table id="CasesTableResult" class="table table-striped table-bordered table-hover" style="display:none">
+                <thead>
+                    <tr class="active">
+                        <th></th>
+                        <th>@Model.ResourceService.GetResourceString("SearchBox.NumeroDeCaso.header.text")</th>
+                        <th>@Model.ResourceService.GetResourceString("SearchBox.NombreDeLesionado.label.text")</th>
+                        <th>@Model.ResourceService.GetResourceString("SearchBox.NumeroDeSeguroSocial.label.text")</th>
+                        <th>@Model.ResourceService.GetResourceString("SearchBox.NumeroEBT.label.text")</th>
+                        <th>Adjudicado</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot></tfoot>
+            </table>
+        </div>
+    </div>
+</div>

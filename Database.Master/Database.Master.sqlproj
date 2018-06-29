@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>Database.Master</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{3134c712-815a-46da-b0e9-30cc5cf7ebd3}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Database.Master</RootNamespace>
+    <AssemblyName>Database.Master</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Entity\" />
+    <Folder Include="Entity\Tables\" />
+    <Folder Include="Inca\" />
+    <Folder Include="Inca\Tables\" />
+    <Folder Include="Location\" />
+    <Folder Include="Location\Tables\" />
+    <Folder Include="Payment\" />
+    <Folder Include="Payment\Tables\" />
+    <Folder Include="Reports\" />
+    <Folder Include="Reports\Tables\" />
+    <Folder Include="SiC\" />
+    <Folder Include="SiC\Tables\" />
+    <Folder Include="UnitTest\" />
+    <Folder Include="UnitTest\Tables\" />
+    <Folder Include="WebApp\" />
+    <Folder Include="WebApp\Tables\" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="Simera\" />
+    <Folder Include="Simera\Views\" />
+    <Folder Include="SiC\Views\" />
+    <Folder Include="Payment\Views\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="Reports\Stored Procedures\" />
+    <Folder Include="UnitTest\Stored Procedures\" />
+    <Folder Include="WebApp\Stored Procedures\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="Security\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Entity\Tables\RelationshipType.sql" />
+    <Build Include="Entity\Tables\RelationshipCategory.sql" />
+    <Build Include="Entity\Tables\Relationship.sql" />
+    <Build Include="Entity\Tables\ParticipantType.sql" />
+    <Build Include="Entity\Tables\ParticipantStatus.sql" />
+    <Build Include="Entity\Tables\Internet.sql" />
+    <Build Include="Entity\Tables\Gender.sql" />
+    <Build Include="Entity\Tables\Master.sql" />
+    <Build Include="Entity\Tables\ApplyTo.sql" />
+    <Build Include="Entity\Tables\CivilStatus.sql" />
+    <Build Include="Entity\Tables\InternetType.sql" />
+    <Build Include="Entity\Tables\PhoneType.sql" />
+    <Build Include="Entity\Tables\AddressType.sql" />
+    <Build Include="Entity\Tables\Address.sql" />
+    <Build Include="Entity\Tables\Phone.sql" />
+    <Build Include="Entity\Tables\Entity.sql" />
+    <Build Include="Inca\Tables\Cancellation.sql" />
+    <Build Include="Inca\Tables\ActiveOnOff.sql" />
+    <Build Include="Inca\Tables\ActiveIdent.sql" />
+    <Build Include="Location\Tables\Country.sql" />
+    <Build Include="Location\Tables\State.sql" />
+    <Build Include="Location\Tables\City.sql" />
+    <Build Include="Location\Tables\Clinic.sql" />
+    <Build Include="Location\Tables\Region.sql" />
+    <Build Include="Location\Tables\Court.sql" />
+    <Build Include="Payment\Tables\Class.sql" />
+    <Build Include="Payment\Tables\Status.sql" />
+    <Build Include="Payment\Tables\Concept.sql" />
+    <Build Include="Payment\Tables\MonthlyConcept.sql" />
+    <Build Include="Payment\Tables\TransferType.sql" />
+    <Build Include="Payment\Tables\Payment.sql" />
+    <Build Include="Reports\Tables\PaymentHistory.sql" />
+    <Build Include="SiC\Tables\KeyRiskIndicator.sql" />
+    <Build Include="SiC\Tables\TransactionType.sql" />
+    <Build Include="SiC\Tables\EmployerStatus.sql" />
+    <Build Include="SiC\Tables\Compensation.sql" />
+    <Build Include="SiC\Tables\Diagnostic.sql" />
+    <Build Include="SiC\Tables\Case.sql" />
+    <Build Include="SiC\Tables\CaseDetail.sql" />
+    <Build Include="Payment\Tables\ThirdPartySchedule.sql" />
+    <Build Include="UnitTest\Tables\Results.sql" />
+    <Build Include="WebApp\Tables\Log4Net_Log.sql" />
+    <Build Include="WebApp\Tables\Menu.sql" />
+    <Build Include="SiC\Tables\CaseRelationship.sql" />
+    <Build Include="WebApp\Tables\AccessControlLevel.sql" />
+    <Build Include="SiC\Tables\CompensationRegion.sql" />
+    <Build Include="SiC\Tables\ICD9.sql" />
+    <Build Include="WebApp\Tables\Functionality.sql" />
+    <Build Include="SiC\Tables\TransactionDetail.sql" />
+    <Build Include="WebApp\Tables\Profile.sql" />
+    <Build Include="WebApp\Tables\ActivityLog.sql" />
+    <Build Include="SiC\Tables\Transaction.sql" />
+    <Build Include="WebApp\Tables\ActivityLogType.sql" />
+    <Build Include="WebApp\Tables\ObjectType.sql" />
+    <Build Include="WebApp\Tables\Setting.sql" />
+    <Build Include="WebApp\Tables\ResourcesString.sql" />
+    <Build Include="dbo\Tables\ELMAH_Error.sql" />
+    <Build Include="Simera\Views\tbl_prod_dietas2.sql" />
+    <Build Include="Simera\Views\tblCheques.sql" />
+    <Build Include="Simera\Views\tblCasos.sql" />
+    <Build Include="Simera\Views\tbl_prod_inca.sql" />
+    <Build Include="SiC\Views\vTransaction.sql" />
+    <Build Include="Payment\Views\vPayment.sql" />
+    <Build Include="SiC\Views\vBalance.sql" />
+    <Build Include="dbo\Functions\PayableDaysInPeriod.sql" />
+    <Build Include="Reports\Stored Procedures\PaymentDetail.sql" />
+    <Build Include="UnitTest\Stored Procedures\CountingDistinct2Tables.sql" />
+    <Build Include="UnitTest\Stored Procedures\CountingNull2Tables.sql" />
+    <Build Include="UnitTest\Stored Procedures\CountingRecords2Tables.sql" />
+    <Build Include="UnitTest\Stored Procedures\RunUnitTests.sql" />
+    <Build Include="WebApp\Stored Procedures\BuscarCasos.sql" />
+    <Build Include="WebApp\Stored Procedures\InformacionCaso.sql" />
+    <Build Include="WebApp\Stored Procedures\ResumenPagosPorBeneficiario.sql" />
+    <Build Include="WebApp\Stored Procedures\ResumenPagosPorConcepto.sql" />
+    <Build Include="dbo\Stored Procedures\ELMAH_GetErrorsXml.sql" />
+    <Build Include="dbo\Stored Procedures\ELMAH_GetErrorXml.sql" />
+    <Build Include="dbo\Stored Procedures\ELMAH_LogError.sql" />
+    <Build Include="WebApp\Stored Procedures\GetRelatedCasesByCaseNumber.sql" />
+    <Build Include="WebApp\Stored Procedures\GetRelatedCasesByCaseNumber_Test.sql" />
+    <Build Include="WebApp\Stored Procedures\GetOtherRelatedCasesByCaseNumber.sql" />
+    <Build Include="WebApp\Stored Procedures\AddPreexistingCase.sql" />
+    <Build Include="WebApp\Stored Procedures\GetPaymentCertification.sql" />
+    <Build Include="WebApp\Stored Procedures\RemovePreexistingCase.sql" />
+    <Build Include="Security\Entity.sql" />
+    <Build Include="Security\Inca.sql" />
+    <Build Include="Security\Location.sql" />
+    <Build Include="Security\Payment.sql" />
+    <Build Include="Security\Reports.sql" />
+    <Build Include="Security\SiC.sql" />
+    <Build Include="Security\Simera.sql" />
+    <Build Include="Security\UnitTest.sql" />
+    <Build Include="Security\WebApp.sql" />
+  </ItemGroup>
+</Project>

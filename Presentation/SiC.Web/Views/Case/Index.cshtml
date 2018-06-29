@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Inicio";
+}
+
+@section Styles{
+}
+
+
+@section Scripts {
+@Scripts.Render("~/bundles/datatables")
+@Scripts.Render("~/bundles/CaseSearch")
+}
+
+<div class="homePage">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header text-danger">
+                <h1>Historial de Pagos</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron">               
+                <p>@Model.ResourceService.GetResourceString("Sistema.Titulo.label.text")</p>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_SearchPayments")
+
+</div>

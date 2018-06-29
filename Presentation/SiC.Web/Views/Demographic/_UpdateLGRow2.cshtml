@@ -1,0 +1,31 @@
+﻿@model Nagnoi.SiC.Web.Models.Demographic.DemographicViewModel
+
+<div class="row">
+    @* row:2 *@
+    <div class="col-md-2">
+        <div class="form-group">
+            <label class="control-label" for="SSN">@Model.ResourceService.GetResourceString("Demografico.SeguroSocial.label.text")</label>
+            <input class="form-control" id="pssn" name="pssn" type="number" maxlength="9"/>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label class="control-label" for="pnumid">@Model.ResourceService.GetResourceString("Demografico.NumeroIdentificacion.label.text")</label>
+            <input class="form-control" id="pnumId" name="pnumId" type="text" maxlength="15"/>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <div class="form-group">
+            @* Convertir este control a una lista *@
+            <label class="control-label" for="dob">@Model.ResourceService.GetResourceString("Demografico.FechaDeNacimiento.label.text")</label>
+            <div class="input-group date" data-provide="datepicker">
+                <input type="text" class="form-control" id="pdob" name="pdob">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

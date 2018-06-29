@@ -1,0 +1,79 @@
+﻿@model Nagnoi.SiC.Web.Models.PaymentRegistration.IndexViewModel
+
+@{
+    ViewBag.Title = "Registro de Pago";
+}
+
+@section Styles{
+    @Styles.Render("~/bundles/datepicker/css")
+}
+
+<div class="homePage">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header text-danger">
+                <h3>Registro de Pagos</h3>
+            </div>
+        </div>
+    </div>
+    @{
+        Html.RenderAction("SearchBox", "Case");
+    }
+    <div id="header-panel" class="row hidden">
+        <div class="col-md-12">
+            <h3>
+                Forma de Pagos
+            </h3>
+            <hr />
+            <div class="panel-group" role="tablist">
+                @Html.Partial("_HeaderCase", Model.CaseModel)
+                <div id="doc-class-panel" class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <div class="panel-title">
+                            <strong class="text-danger">
+                                @Model.ResourceService.GetResourceString("HeaderCaso.ClaseDocumento.label.text")
+                            </strong>
+                        </div>
+                    </div>
+                    <div class="panel-collapse collapse in" role="tabpanel">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="ddlDocumentType"></label>
+                                        <select id="ddlDocumentType" name="ddlDocumentType" class="form-control">
+                                            <option value="">-- Seleccionar --</option>
+                                            <option value="1">Inversión</option>
+                                            <option value="2">IPP</option>
+                                            <option value="3">Gastos perentorios</option>
+                                            <option value="4">Dietas Pendientes</option>
+                                            <option value="5">Honorarios de Abogados</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="payment-per-panel" class="panel-group hidden" role="tablist">
+                @Html.Partial("_PaymentPeremptory")
+            </div>
+            <div id="payment-inv-panel" class="panel-group hidden" role="tablist">
+                @Html.Partial("_PaymentInvestment")
+            </div>
+            <div id="payment-ipp-panel" class="panel-group hidden" role="tablist">
+                @Html.Partial("_PaymentIpp", Model)
+            </div>
+            <div id="payment-diet-panel" class="panel-group hidden" role="tablist">
+                @Html.Partial("_PaymentPendingDiet")
+            </div>
+            <div id="payment-lawyer-panel" class="panel-group hidden" role="tablist">
+                @Html.Partial("_PaymentLawyer")
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/Payments")
+}

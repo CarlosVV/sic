@@ -1,0 +1,132 @@
+﻿@model Nagnoi.SiC.Web.Models.Adjustments.IndexViewModel
+
+@{
+    ViewBag.Title = "Ajustes e Incapacidades";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles{
+    @Styles.Render("~/bundles/datepicker/css")
+}
+
+<div class="homePage">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header text-danger">
+                <h3>Ajustes a Maestro de Incapacidades</h3>
+            </div>
+        </div>
+    </div>
+    @{
+        Html.RenderAction("SearchBox", "Case");
+    }
+    <form id="ajuste-form" method="post" action="#" class="row hidden">
+        <div class="col-md-12">
+            <div class="panel-group" role="tablist">
+                @Html.Partial("_HeaderCase", Model.CaseModel)
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <div class="panel-title">
+                            <strong class="text-danger">
+                                Tipo de Ajuste
+                            </strong>
+                            <div class="pull-right">
+                                <a class="collapse-click">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-collapse collapse in" role="tabpanel">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        @Html.DropDownListFor(model => model.AdjustmentTypeId, Model.AdjustmentTypes, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="detalle-panel" class="panel panel-default hidden">
+                    <div class="panel-heading" role="tab">
+                        <div class="panel-title">
+                            <strong class="text-danger">
+                                Detalle
+                            </strong>
+                            <div class="pull-right">
+                                <a class="collapse-click">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-collapse collapse in" role="tabpanel">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div id="monthly-installment-field" class="col-md-3">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.MonthlyInstallment, new { @class = "control-label" })
+                                        @Html.TextBoxFor(model => model.MonthlyInstallment, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div id="adjustment-reason-field" class="col-md-3">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.AdjustmentReasonId, new { @class = "control-label" })
+                                        @Html.DropDownListFor(model => model.AdjustmentReasonId, Model.AdjustmentReasons, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div id="current-balance-field" class="col-md-3">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.CurrentBalance, new { @class = "control-label" })
+                                        @Html.TextBoxFor(model => model.CurrentBalance, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div id="from-date-field" class="col-md-3">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.FromDate, new { @class = "control-label" })
+                                        @Html.TextBoxFor(model => model.FromDate, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div id="transaction-type-field" class="col-md-3">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.TransactionTypeId, new { @class = "control-label" })
+                                        @Html.DropDownListFor(model => model.TransactionTypeId, Model.TransactionTypes, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div id="new-adjudicacion-field" class="col-md-3">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.NewAdjudicacion, new { @class = "control-label" })
+                                        @Html.TextBoxFor(model => model.NewAdjudicacion, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div id="cancellation-field" class="col-md-3">
+                                    @Html.LabelFor(model => model.CancellationId, new { @class = "control-label" })
+                                    @Html.DropDownListFor(model => model.CancellationId, Model.Cancellation, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    @Html.LabelFor(model => model.Comments, new { @class = "control-label" })
+                                    @Html.TextAreaFor(model => model.Comments, 5, 10, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer clearfix">
+                        <div class="pull-right">
+                            <input id="btnNew" class="btn btn-success nuevo" type="button" value="Nuevo" />
+                            <input id="btnSave" class="btn btn-success" type="button" value="Guardar" />
+                            <input id="btnCancel" class="btn btn-success cancelar" type="button" value="Cancelar" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/adjustments/scripts")
+}

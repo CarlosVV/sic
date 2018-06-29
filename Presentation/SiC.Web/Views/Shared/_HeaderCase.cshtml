@@ -1,0 +1,453 @@
+﻿@model Nagnoi.SiC.Infrastructure.Web.ViewModels.CaseViewModel
+
+<div class="panel-group" role="tablist">
+    <div id="case-info-panel" class="panel panel-default">
+        <div class="panel-heading" role="tab">
+            <div class="panel-title">
+                <strong class="text-danger">
+                    Informaci&oacute;n del caso
+                </strong>
+                <div class="pull-right">
+                    <a class="collapse-click">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="panel-collapse collapse in" role="tabpanel">
+            <div class="panel-body dt-description">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="col-md-3 nopadding">
+                            <label class="control-label" for="due_due_beneficiario">
+                                @Model.ResourceService.GetResourceString("HeaderCaso.NumeroDeCaso.label.text")
+                            </label>
+                            <div class="col-md-11 nopadding">
+                                <dl>
+                                    <dd id="info_numerocaso"></dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="col-md-9 nopadding">
+                            <dl>
+                                <dt>
+                                    @Model.ResourceService.GetResourceString("HeaderCaso.Lesionado.label.text")
+                                </dt>
+                                <dd id="info_lesionado"></dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="col-md-7 nopadding">
+                        <div class="col-md-2 nopadding">
+                            <label class="control-label" for="info_ssn">
+                                @Model.ResourceService.GetResourceString("Header.NumeroDeSeguroSocial.label.text")
+                            </label>
+                            <div class="col-md-12 nopadding">
+                                <dl>
+                                    <dd id="info_ssn"></dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="col-md-4 nopadding">
+                                <label class="control-label" for="info_fnacimiento">
+                                    @Model.ResourceService.GetResourceString("HeaderCaso.FechaDeNacimiento.label.text")
+                                </label>
+                                <div class="col-md-12 nopaddingleft">
+                                    <dl>
+                                        <dd id="info_fnacimiento"></dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="col-md-4 nopadding">
+                                <label class="control-label" for="info_faccidente">
+                                    @Model.ResourceService.GetResourceString("HeaderCaso.FechaDeAccidente.label.text")
+                                </label>
+                                <div class="col-md-11 nopadding">
+                                    <dl>
+                                        <dd id="info_faccidente"></dd>
+                                    </dl>
+                                </div>
+                            </div>                          
+                            <div class="col-md-4 nopadding">
+                                <label class="control-label" for="info_fradicacion">
+                                    @Model.ResourceService.GetResourceString("HeaderCaso.FechaDeRadicacion.label.text")
+                                </label>
+                                <div class="col-md-11 nopadding">
+                                    <dl>
+                                        <dd id="info_fradicacion"></dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="col-md-3 nopadding">
+                            <label class="control-label" for="info_ebt">
+                                @Model.ResourceService.GetResourceString("HeaderCaso.NumeroEBT.label.text")
+                            </label>
+                            <div class="col-md-11 nopadding">
+                                <dl>
+                                    <dd id="info_ebt"></dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="col-md-4 nopadding">
+                            <label class="control-label" for="info_balance_ebt">
+                                @Model.ResourceService.GetResourceString("HeaderCaso.BalanceEBT.label.text")
+                            </label>
+                            <div class="col-md-11 nopadding">
+                                <input class="form-control text-right" id="info_balance_ebt" name="info_benef_balance_ebt" type="text" maxlength="75" readonly />
+                            </div>
+                        </div>
+                        <div class="col-md-5 nopadding">
+                            <dl>
+                                <dt>
+                                    @Model.ResourceService.GetResourceString("HeaderCaso.EstatusEBT.label.text")
+                                </dt>
+                                <dd id="info_estatus_ebt"></dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="col-md-7 nopadding">
+                        <div class="col-md-2 nopadding">
+                            <label class="control-label" for="info_ssn">
+                                @Model.ResourceService.GetResourceString("HeaderCaso.TipoIncapacidad.label.text")
+                            </label>
+                            <div class="=col-md-5 nopadding">
+                                <dl>
+                                    <dd id="info_tipoinca"></dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="col-md-4 nopadding">
+                                <label class="control-label" for="info_region">
+                                    @Model.ResourceService.GetResourceString("HeaderCaso.RegionDeTratamiento.label.text")
+                                </label>
+                                <div class="col-md-11 nopadding">
+                                    <dl>
+                                        <dd id="info_region"></dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="col-md-5 nopadding">
+                                <label class="control-label" for="info_dispensario">
+                                    @Model.ResourceService.GetResourceString("HeaderCaso.Dispensario.label.text")
+                                </label>
+                                <div class="col-md-9 nopadding">
+                                    <dl>
+                                        <dd id="info_dispensario"></dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="col-md-3 nopadding">
+                            <div class="col-md-11 nopadding">
+                                <dl>
+                                    <dt>
+                                        @Model.ResourceService.GetResourceString("HeaderCaso.Ein.label.text")
+                                    </dt>
+                                    <dd id="info_ein"></dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="col-md-11 nopadding">
+                            <dl>
+                                <dt>
+                                    @Model.ResourceService.GetResourceString("HeaderCaso.NombrePatrono.label.text")
+                                </dt>
+                                <dd id="info_patrono"></dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="col-md-7 nopadding">
+                        <div class="col-md-2 nopadding">
+                            <label class="control-label" for="info_poliza">
+                                @Model.ResourceService.GetResourceString("HeaderCaso.NumeroDePoliza.label.text")
+                            </label>
+                            <div class="col-md-12 nopadding">
+                                <dl>
+                                    <dd id="info_poliza"></dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <dl>
+                                <dt>
+                                    @Model.ResourceService.GetResourceString("HeaderCaso.EstatusPatronal.label.text")
+                                </dt>
+                                <dd id="info_estatus_patronal"></dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="col-md-3 nopadding">
+                            <label class="control-label" for="info_ebt">
+                                @Model.ResourceService.GetResourceString("HeaderCaso.Balance.label.text")
+                            </label>
+                            <div class="col-md-11 nopadding">
+                                <input class="form-control text-right" id="info_balance" name="info_balance" type="text" maxlength="75" readonly />                                
+                            </div>
+                        </div>
+                        <div class="col-md-4 nopadding">
+                            <label class="control-label" for="info_estatus_pago">
+                                @Model.ResourceService.GetResourceString("HeaderCaso.EstatusPago.label.text")
+                            </label>
+                            <div class="col-md-11 nopadding">
+                                <dl>
+                                    <dd id="info_estatus_pago"></dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="col-md-5 nopadding">
+                            <dl>
+                                <dt>
+                                    @Model.ResourceService.GetResourceString("HeaderCaso.FechaSuspension.label.text")
+                                </dt>
+                                <dd id="info_fecha_suspension"></dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="col-md-7 nopadding">
+                        <div class="col-md-9 nopadding">
+                            <div class="col-md-6 nopadding">
+                                <label class="control-label" for="info_region">
+                                    @Model.ResourceService.GetResourceString("HeaderCaso.RazonSuspension.label.text")
+                                </label>
+                                <div class="col-md-12 nopaddingleft">
+                                    <dl>
+                                        <dd id="info_razon_suspension"></dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="col-md-5 nopadding">
+                                <label class="control-label" for="info_dispensario">
+                                    @Model.ResourceService.GetResourceString("HeaderCaso.FechaReanudacion.label.text")
+                                </label>
+                                <div class="col-md-9 nopadding">
+                                    <dl>
+                                        <dd id="info_fecha_reanudacion"></dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="col-md-3 nopadding">
+                            <label for="info_menor" class="chkbox">
+                                <input id="info_menor" name="info_menor" type="checkbox" readonly />
+                                @Model.ResourceService.GetResourceString("HeaderCaso.CasoDeMenor.label.text")
+                            </label>
+                        </div>
+                        <div class="col-md-3 nopadding">
+                            <label for="info_muerte" class="chkbox">
+                                <input id="info_muerte" name="info_muerte" type="checkbox" readonly />
+                                @Model.ResourceService.GetResourceString("HeaderCaso.CasoDeMuerte.label.text")
+                            </label>
+                        </div>
+                    </div>
+                </div>                
+                <div id="case-beneficiary-info" class="row hidden">
+                    <div class="col-md-12">
+                        <div id="case-beneficiary-info-panel" class="panel panel-default">
+                            <div class="panel-heading-beneficiary panel-heading" role="tab">
+                                <div class="panel-title">
+                                    <strong class="text-danger">
+                                        @Model.ResourceService.GetResourceString("HeaderCaso.Beneficiario.label.text")
+                                    </strong>                                    
+                                </div>                               
+                            </div>
+                            <div class="panel-collapse collapse in" role="tabpanel">
+                                <div class="panel-body dt-description">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="col-md-3 nopadding">
+                                                <label class="control-label" for="info_benef_relacion">
+                                                    @Model.ResourceService.GetResourceString("HeaderCaso.Beneficiario.Relacion.label.text")
+                                                </label>
+                                                <div class="col-md-11 nopadding">
+                                                    <dl>
+                                                        <dd id="info_benef_relacion"></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-9 nopadding">
+                                                <dl>
+                                                    <dt>
+                                                        @Model.ResourceService.GetResourceString("HeaderCaso.Beneficiario.Nombre.label.text")
+                                                    </dt>
+                                                    <dd id="info_benef_nombre"></dd>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7 nopadding">
+                                            <div class="col-md-2 nopadding">
+                                                <label class="control-label" for="info_poliza">
+                                                    @Model.ResourceService.GetResourceString("HeaderCaso.Beneficiario.SeguroSocial.label.text")
+                                                </label>
+                                                <div class="col-md-12 nopadding">
+                                                    <dl>
+                                                        <dd id="info_benef_ssn"></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5 nopaddingleft">
+                                                <div class="col-md-6 nopaddingright">
+                                                    <label class="control-label" for="info_benef_fnac">
+                                                        @Model.ResourceService.GetResourceString("HeaderCaso.Beneficiario.FechaNacimiento.label.text")
+                                                    </label>
+                                                    <div class="col-md-11 nopadding">
+                                                        <dl>
+                                                            <dd id="info_benef_fnac"></dd>
+                                                        </dl>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 nopaddingleft">
+                                                    <dl>
+                                                        <dt>
+                                                            @Model.ResourceService.GetResourceString("HeaderCaso.Beneficiario.Sufijo.label.text")
+                                                        </dt>
+                                                        <dd id="info_benef_sufijo"></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="col-md-3 nopadding">
+                                                <label class="control-label" for="info_benef_relacion">
+                                                    @Model.ResourceService.GetResourceString("HeaderCaso.Beneficiario.NumeroEBT.label.text")
+                                                </label>
+                                                <div class="col-md-11 nopadding">
+                                                    <dl>
+                                                        <dd id="info_benef_ebt"></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 nopadding">
+                                                <label class="control-label" for="info_benef_balance_ebt">
+                                                    @Model.ResourceService.GetResourceString("HeaderCaso.Beneficiario.BalanceEBT.label.text")
+                                                </label>
+                                                <div class="col-md-11 nopadding">
+                                                    <input class="form-control text-right" id="info_benef_balance_ebt" name="info_benef_balance_ebt" type="text" maxlength="75" readonly />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5 nopadding">
+                                                <dl>
+                                                    <dt>
+                                                        @Model.ResourceService.GetResourceString("HeaderCaso.Beneficiario.EstatusEBT.label.text")
+                                                    </dt>
+                                                    <dd id="info_benef_estatus_ebt"></dd>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="col-md-3 nopadding">
+                                                <label class="control-label" for="info_beneficiario_balance">
+                                                    @Model.ResourceService.GetResourceString("HeaderCaso.Beneficiario.Balance.label.text")
+                                                </label>
+                                                <div class="col-md-11 nopadding">
+                                                    <input class="form-control text-right" id="info_beneficiario_balance" name="info_balance" type="text" maxlength="75" readonly />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 nopadding">
+                                                <label class="control-label" for="info_beneficiario_estatus_pago">
+                                                    @Model.ResourceService.GetResourceString("HeaderCaso.Beneficiario.EstatusPago.label.text")
+                                                </label>
+                                                <div class="col-md-11 nopadding">
+                                                    <dl>
+                                                        <dd id="info_beneficiario_estatus_pago"></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5 nopadding">
+                                                <dl>
+                                                    <dt>
+                                                        @Model.ResourceService.GetResourceString("HeaderCaso.Beneficiario.FechaSuspension.label.text")
+                                                    </dt>
+                                                    <dd id="info_beneficiario_fecha_suspension"></dd>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7 nopadding">
+                                            <div class="col-md-9 nopadding">
+                                                <div class="col-md-6 nopadding">
+                                                    <label class="control-label" for="info_beneficiario_razon_suspension">
+                                                        @Model.ResourceService.GetResourceString("HeaderCaso.Beneficiario.RazonSuspension.label.text")
+                                                    </label>
+                                                    <div class="col-md-12 nopaddingleft">
+                                                        <dl>
+                                                            <dd id="info_beneficiario_razon_suspension"></dd>
+                                                        </dl>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5 nopadding">
+                                                    <label class="control-label" for="info_beneficiario_fecha_reanudacion">
+                                                        @Model.ResourceService.GetResourceString("HeaderCaso.Beneficiario.FechaReanudacion.label.text")
+                                                    </label>
+                                                    <div class="col-md-9 nopadding">
+                                                        <dl>
+                                                            <dd id="info_beneficiario_fecha_reanudacion"></dd>
+                                                        </dl>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <dl>
+                                    <dt>
+                                        @Model.ResourceService.GetResourceString("HeaderCaso.DireccionFisica.label.text")
+                                    </dt>
+                                    <dd id="direccion_linea1" class="spacing"></dd>
+                                    <dd id="direccion_linea2"></dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <dl>
+                                    <dd id="direccion_ciudad"></dd>
+                                </dl>
+                            </div>
+                            <div class="col-md-3">
+                                <dl>
+                                    <dd id="direccion_estado"></dd>
+                                </dl>
+                            </div>
+                            <div class="col-md-2">
+                                <dl>
+                                    <dd id="direccion_zipcode"></dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>

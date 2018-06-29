@@ -1,0 +1,43 @@
+﻿@using Nagnoi.SiC.Web.Models.Payment
+@model PaymentViewModel
+
+@{
+    ViewBag.Title = "Inicio";
+}
+
+@section Styles{
+   @Styles.Render("~/content/PaymentHistoryStylesheets")
+   @Styles.Render("~/bundles/datepicker/css")
+
+}
+<div class="homePage">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header text-danger">
+                <h1>Historial de Pagos</h1>
+            </div>
+        </div>
+    </div>
+    @{
+        Html.RenderAction("SearchBox", "Case");
+    }
+    <div id="header-panel" class="row hidden">
+        <div class="col-md-12">
+            <h3>
+                Historial de Pago
+            </h3>
+            <hr /> 
+            <div class="panel-group" role="tablist">
+                @Html.Partial("_HeaderCase", Model.CaseModel)
+            </div>
+            <div id="PaymentSearch" class="panel-group" role="tablist">
+                @Html.Partial("_PaymentsSumary")
+               @Html.Partial("_ReportBtn", Model.CaseInfo)
+            </div>
+         </div>
+    </div> 
+</div>
+@section Scripts {
+    @*@Scripts.Render("~/bundles/datatables")*@
+    @Scripts.Render("~/bundles/PaymentHistorySearch")
+}

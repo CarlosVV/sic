@@ -1,0 +1,23 @@
+﻿<form id="CaseInformation" class="hidden">
+    <div id="CaseSummary" class="col-lg-9">
+        @Html.Partial("_HeaderCase", Model.CaseModel)
+    </div>
+
+    <div id="IppSummary" class="col-lg-9">
+        @Html.Partial("_IPPSummary")
+    </div>
+    <div id="ItpSummary" class="col-lg-9">
+        @Html.Partial("_ITPSummary")
+    </div>
+
+    <div class="col-md-9">
+        <b id="TotalIPPITP"></b>
+    </div>
+    <div class="col-md-9"></div>
+    <div id="inversionSummary" class="col-lg-9">
+        @Html.Partial("_InversionSummary")
+    </div>
+    <div id="deathBeneficiary" class="col-md-12">
+        @Html.Partial("_BeneficiarySummary")
+    </div>
+</form>

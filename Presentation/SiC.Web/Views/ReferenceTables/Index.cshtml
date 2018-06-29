@@ -1,0 +1,77 @@
+﻿@using Nagnoi.SiC.Web.Models.ReferenceTables
+
+@{
+    ViewBag.Title = "Inicio";
+}
+
+@model IndexViewModel
+
+@section  Styles {
+    @Styles.Render("~/bundles/tablereferences/css")
+}
+
+<div class="homePage">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header text-danger">
+                <h3>Tablas de Referencias</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Gestión de Tablas de Referencia</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="TableReferenceList" class="control-label">Tabla de Referencia</label>
+                                @Html.DropDownListFor(model => Model.ReferenceTables, Model.ReferenceTables, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="addressTypePanel" style="display: none;" class="tablepanel">
+        @Html.Partial("_AddressType")
+    </div>
+    <div id="applyToPanel" style="display: none;" class="tablepanel">
+        @Html.Partial("_ApplyTo")
+    </div>
+    <div id="genderPanel" style="display: none;" class="tablepanel">
+        @Html.Partial("_Gender")
+    </div>
+    <div id="internetTypePanel" style="display: none;" class="tablepanel">
+        @Html.Partial("_InternetType")
+    </div>
+    <div id="civilStatusPanel" style="display: none;" class="tablepanel">
+        @Html.Partial("_CivilStatus")
+    </div>
+    <div id="paymentClassPanel" style="display: none;" class="tablepanel">
+        @Html.Partial("_PaymentClass")
+    </div>
+    <div id="transferTypePanel" style="display: none;" class="tablepanel">
+        @Html.Partial("_TransferType")
+    </div>
+    <div id="transactionTypePanel" style="display: none;" class="tablepanel">
+        @Html.Partial("_TransactionType")
+    </div>
+    <div id="paymentConceptPanel" style="display: none;" class="tablepanel">
+        @Html.Partial("_PaymentConcept")
+    </div>
+    <div id="relationshipTypePanel" style="display: none;" class="tablepanel">
+        @Html.Partial("_RelationshipType")
+    </div>
+    <div id="relationshipCategoryToPanel" style="display: none;" class="tablepanel">
+        @Html.Partial("_RelationshipCategory")
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/tablereferencesDatatables/scripts")
+    @Scripts.Render("~/bundles/tablereferences/scripts")
+}

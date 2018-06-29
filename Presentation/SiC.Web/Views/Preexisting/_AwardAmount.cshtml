@@ -1,0 +1,47 @@
+﻿@using Nagnoi.SiC.Web.Models.PreExisting
+@model PreExistingViewModel
+
+@*
+    Panel Total Adjudicado
+*@
+<div class="panel panel-default" id="CaseBalance">
+    <div class="panel-heading" role="tab" id="heading2">
+        <h4 class="panel-title">
+            <a role="button" data-toggle="collapse" href="#link2" aria-expanded="true" aria-controls="collapse3">
+                <strong class="text-danger">Total Adjudicado</strong>
+            </a>
+        </h4>
+    </div>
+    <div id="link2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2">
+        <div class="panel-body">
+            <div class="row">
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label" for="">En este caso</label>
+                        <input id="AdjudicationAmount" class="form-control" name="" type="text" maxlength="75" readonly value="" style="text-align: right;" />
+                    </div>
+                </div>
+
+                <div class="col-md-1"></div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label" for="">En casos anteriores</label>
+                        <input id="OtherAdjudicationAmount" class="form-control" name="" type="text" maxlength="75" readonly style="text-align: right;" />
+                    </div>
+                </div>
+
+                <div class="col-md-1"></div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label" for="">Lesionado</label>
+                        <input id="AdjudicationIW" class="form-control" name="" type="text" maxlength="75" readonly style="text-align: right;" />
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </div>
+</div>

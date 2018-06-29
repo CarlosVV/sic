@@ -1,0 +1,135 @@
+﻿var editorRelationshipCategory;
+
+CDI.DisplayRelationshipCategory = (function () {
+    var _start = function () {
+
+        $.ajaxSetup({ cache: false });
+
+        editorRelationshipCategory = new $.fn.dataTable.Editor({
+            ajax: {
+                url: root + "referencetables/relationshipcategoryupdate"
+            },
+            table: "#grid-data-relationshipcategory",
+            idSrc: "RelationshipCategoryId",
+            fields: [{
+                label: "Categoría de Relación:",
+                name: "RelationshipCategory1"
+            }, {
+                "label": "¿Oculto?",
+                "name": "Hidden",
+                "type": "radio",
+                "options": [
+	     			{ label: "Si", value: true },
+                    { label: "No", value: false }
+                ]
+            }
+            ],
+            i18n: {
+                create: {
+                    button: "Nuevo",
+                    title: "Crear nueva Categoría de Relación",
+                    submit: "Crear"
+                },
+                edit: {
+                    button: "Modificar",
+                    title: "Modificar Categoría de Relación",
+                    submit: "Actualizar"
+                },
+                remove: {
+                    button: "Eliminar",
+                    title: "Eliminar",
+                    submit: "Eliminar",
+                    confirm: {
+                        _: "¿Está seguro de eliminar %d registros?",
+                        1: "¿Está seguro de eliminar 1 registro?"
+                    }
+                },
+                error: {
+                    system: "Ocurrió un error en el sistema, por favor contacte con el administrador del Sistema."
+                },
+                datetime: {
+                    previous: 'Atrás',
+                    next: 'Adelante',
+                    months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                    weekdays: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab']
+                }
+            }
+        });
+
+        editorRelationshipCategory.on('preSubmit', function (e, o, action) {
+            if (action !== 'remove') {
+                var RelationshipCategory1 = editorRelationshipCategory.field('RelationshipCategory1');
+
+                // Only validate user input values - different values indicate that
+                // the end user has not entered a value
+                if (!RelationshipCategory1.isMultiValue()) {
+                    if (!RelationshipCategory1.val()) {
+                        RelationshipCategory1.error('Categoría relación debe ser informado.');
+                    }
+                }               
+
+                // If any error was reported, cancel the submission so it can be corrected
+                if (this.inError()) {
+                    return false;
+                }
+            }
+        });
+
+        $('#grid-data-relationshipcategory').DataTable({
+            "autoWidth": false,
+            "processing": true,
+            "language": {
+                "paginate": {
+                    "first": "Primera",
+                    "last": "Última",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                },
+                "infoFiltered": " (de un total _MAX_ de registros filtrados)",
+                "info": "Mostrando del _START_ al _END_ de _TOTAL_ registros",
+                "infoEmpty": "Se encontraron 0 registros",
+                "processing": "Buscando <i class='fa fa-spinner fa-spin'></i>",
+                "lengthMenu": "Mostrar _MENU_ registros",
+            },
+            "drawCallback": function (settings) {
+                $(".dataTables_empty").html('No se encontraron registros.');
+            },
+            "ajax": {
+                "url": root + "referencetables/listartablareferenciacategoriarelacion",
+                "type": "GET"
+            },
+            "columns": [
+                {
+                    "name": "RelationshipCategory1",
+                    "data": "RelationshipCategory1",
+                    "orderable": false,
+                    "class": "text-center"
+                },
+                {
+                    "name": "Hidden",
+                    "data": "Hidden",
+                    "orderable": false,
+                    "class": "text-center",
+                    "render": function (data, type, row) {
+                        return data ? "Si" : "No";
+                    }
+                }
+            ],
+            "select": true,
+            "buttons": [
+                   { extend: "create", editor: editorRelationshipCategory },
+                   { extend: "edit", editor: editorRelationshipCategory },
+                   { extend: "remove", editor: editorRelationshipCategory }
+            ],
+            dom: "Brtip"
+        });
+    };
+
+    return {
+        start: _start
+    }
+})();
+
+$(function () {
+    CDI.DisplayRelationshipCategory.start();
+});

@@ -1,0 +1,57 @@
+﻿@model Nagnoi.SiC.Domain.Core.Model.InformacionCaso_Result
+@{
+    ViewBag.Title = "Inicio";
+}
+
+@section Styles{
+    @Styles.Render("~/bundles/datepicker/css")
+}
+
+
+@section Scripts {
+    <script type="text/javascript">
+        var caseFolderId = "@ViewBag.caseFolderId";
+    </script>
+
+    @Scripts.Render("~/bundles/PaymentSumary");
+
+    @Scripts.Render("~/bundles/datepicker")
+
+}
+<div class="homePage">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header text-danger">
+                <h1>Historial de Pagos</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h1 class="panel-title">Resumen del Caso</h1>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="name" class="control-label">Nombre</label>
+                                @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", @minlength = "3", @maxlength = "80", @disabled = "disabled" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="case" class="control-label">Numero de Caso</label>
+                                @Html.TextBoxFor(m => m.CaseNumber, new { @class = "form-control", @minlength = "3", @maxlength = "80", @disabled = "disabled" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_PaymentsSumary")
+    @Html.Partial("_ReportBtn", Model)
+</div>

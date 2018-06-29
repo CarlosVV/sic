@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Inicio";
+}
+
+@section Styles{
+    @Styles.Render("~/bundles/datepicker/css")
+}
+
+
+@section Scripts {
+    <script type="text/javascript">
+        var caseFolderId = "@ViewBag.caseFolderId";
+</script>
+
+@Scripts.Render("~/bundles/PaymentSumary")
+
+    @*@if (!HttpContext.Current.IsDebuggingEnabled)
+    {
+        if (User.IsInRole("Supervisores_de_Formalizacion"))
+        {
+            @Scripts.Render("~/bundles/SearchEmployerWithoutPolicy");
+        }
+        else if (!User.IsInRole("Administrador_de_Integracion_de_Patronos"))
+        {
+            @Scripts.Render("~/bundles/SearchInvIntEmployer");
+        }
+    }
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+        @Scripts.Render("~/bundles/SearchEmployerWithoutPolicy");
+    }*@
+}
+<div class="homePage">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header text-danger">
+                <h1>Historial de Pagos</h1>
+            </div>
+        </div>
+    </div>
+        @Html.Partial("_CaseInfo")
+        @Html.Partial("_PaymentsSumary")
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <a href="#" onclick="window.open('http://10.2.249.57/ReportServer/Pages/ReportViewer.aspx?%2fProyectos%2fMPRC%2fCFSE-HistorialPagos&rs:Command=Render&CaseNumber=@ViewBag.caseNumber', '_blank');"><input type="button" value="Reporte de Historial de Pagos" class="btn btn-dark btn-block" /></a>
+        </div>
+    </div>
+</div>

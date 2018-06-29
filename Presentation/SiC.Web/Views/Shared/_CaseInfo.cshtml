@@ -1,0 +1,38 @@
+﻿@model InformacionCaso_Result
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1 class="panel-title">Resumen del Caso</h1>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="name" class="control-label">Nombre</label>
+                            @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", @minlength = "3", @maxlength = "80", @disabled = "disabled" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="case" class="control-label">Número de Caso</label>
+                            @Html.TextBoxFor(m => m.CaseNumber, new { @class = "form-control", @minlength = "3", @maxlength = "80", @disabled = "disabled" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="case" class="control-label">Número de Póliza</label>
+                            @Html.TextBoxFor(m => m.PolicyNumber, new { @class = "form-control", @minlength = "3", @maxlength = "80", @disabled = "disabled" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="case" class="control-label">SSN</label>
+                            @Html.TextBoxFor(m => m.SSN, new { @class = "form-control", @minlength = "3", @maxlength = "80", @disabled = "disabled" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+﻿@model Nagnoi.SiC.Web.Models.Case.SearchViewModel
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            @Model.ResourceService.GetResourceString("SearchBox.Filter.NumeroDeCaso.header.text")
+                        </label>
+                        @Html.TextBoxFor(model => model.CaseNumber, new {id = "casenumber_form", @class = "form-control search", maxlength = "75"})
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            @Model.ResourceService.GetResourceString("SearchBox.Filter.LesionadoBeneficiario.header.text")
+                        </label>
+                        @Html.TextBoxFor(model => model.EntityName, new {id = "fullname_form", @class = "form-control search", maxlength = "200"})
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            @Model.ResourceService.GetResourceString("SearchBox.Filter.SeguroSocial.header.text")
+                        </label>
+                        @Html.TextBoxFor(model => model.SocialSecurityNumber, new {id = "ssn_form", @class = "form-control search", maxlength = "11"})
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            @Model.ResourceService.GetResourceString("SearchBox.Filter.NumeroEBT.header.text")
+                        </label>
+                        @Html.TextBoxFor(model => model.EBTNumber, new {id = "ebtnumber_form", @class = "form-control search", maxlength = "9"})
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

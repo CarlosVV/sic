@@ -1,0 +1,483 @@
+﻿@model Nagnoi.SiC.Web.Models.ThirdPartyPayment.IndexViewModel
+
+@{
+    ViewBag.Title = "Pago Terceros";
+}
+
+@section Styles{
+    @Styles.Render("~/bundles/datepicker/css")
+}
+
+<div class="homePage">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header text-danger">
+                <h3>Pagos de Terceros</h3>
+            </div>
+        </div>
+    </div>
+    @{
+        Html.RenderAction("SearchBox", "Case");
+    }
+    <form id="frmPagoTerceros" method="post" action="#" class="row hidden">
+        <div class="col-md-12">
+            <h3>
+                Forma de Pagos
+            </h3>
+            <hr />
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    @Html.Partial("_HeaderCase", Model.CaseModel)
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <div class="panel-title">
+                            <strong class="text-danger">
+                                Resumen
+                            </strong>
+                            <div class="pull-right">
+                                <a class="collapse-click">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-collapse collapse in" role="tabpanel">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <table id="tblResumen" class="table table-striped table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Entidad / Custodio</th>
+                                                    <th>Nro. Caso / Id. Orden</th>
+                                                    <th>Nro. Participante / Id. Caso</th>
+                                                    <th>Total a Pagar</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <div class="panel-title">
+                            <strong class="text-danger">
+                                Informaci&oacute;n de la orden
+                            </strong>
+                            <div class="pull-right">
+                                <a class="collapse-click">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-collapse collapse in" role="tabpanel">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="tipo_orden">
+                                            @Model.ResourceService.GetResourceString("PagoTerceros.SeleccioneElTipoDeOrden.label.text")
+                                        </label>
+                                        @Html.DropDownListFor(model => Model.Courts, Model.Courts, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="">
+                                            @Model.ResourceService.GetResourceString("PagoTerceros.PagoDirigidoA.label.text")
+                                        </label>
+                                        <div class="radio">
+                                            <label for="pago_dirigido_entidad">
+                                                <input class="pago_dirigido" id="pago_dirigido_entidad" name="pago_dirigido_entidad" type="radio" value="Entidad" checked />
+                                                @Model.ResourceService.GetResourceString("PagoTerceros.EntidadQueEmiteLaOrden.label.text")
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label for="pago_dirigido_cust">
+                                                <input class="pago_dirigido" id="pago_dirigido_cust" name="pago_dirigido_cust" type="radio" value="Custodio" />
+                                                @Model.ResourceService.GetResourceString("PagoTerceros.PersonaCustodio.label.text")
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="nombre_entidad_court">
+                                            @Model.ResourceService.GetResourceString("PagoTerceros.Entidad.label.text")
+                                        </label>
+                                        <input class="form-control" id="nombre_entidad_court" name="nombre_entidad_court" type="text" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="direccion_entidad">
+                                            @Model.ResourceService.GetResourceString("PagoTerceros.DireccionEntidad.label.text")
+                                        </label>
+                                        <input class="form-control" id="direccion_entidad" name="direccion_entidad" type="text" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="entity-panel" class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <div class="panel-title">
+                            <strong class="text-danger">
+                                Informaci&oacute;n de entidad
+                            </strong>
+                            <div class="pull-right">
+                                <a class="collapse-click">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-collapse collapse in" role="tabpanel">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label" for="nombre_entidad">
+                                            @Model.ResourceService.GetResourceString("PagoTerceros.NombreEntidad.label.text")
+                                        </label>
+                                        <input class="form-control" id="nombre_entidad" name="nombre_entidad" type="text" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <tr>
+                                                <td colspan="2">
+                                                    <div class="form-group">
+                                                        <label class="control-label">
+                                                            @Model.ResourceService.GetResourceString("PagoTerceros.DireccionEntidad.label.text")
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="direccion_entidad_linea1">
+                                                            @Model.ResourceService.GetResourceString("PagoTerceros.Linea1.label.text")
+                                                        </label>
+                                                        <input class="form-control" id="direccion_entidad_linea1" name="direccion_entidad_linea1" type="text" placeholder="linea 1" />
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="direccion_entidad_linea2">
+                                                            @Model.ResourceService.GetResourceString("PagoTerceros.Linea2.label.text")
+                                                        </label>
+                                                        <input class="form-control" id="direccion_entidad_linea2" name="direccion_entidad_linea2" type="text" placeholder="linea 2" />
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="Cities">
+                                                            @Model.ResourceService.GetResourceString("PagoTerceros.Ciudad.label.text")
+                                                        </label>
+                                                        @Html.DropDownListFor(model => Model.Cities, Model.Cities, new { @class = "form-control", id = "direccion_entidad_ciudad" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="direccion_entidad_codigopostal">
+                                                            @Model.ResourceService.GetResourceString("PagoTerceros.CodigoPostal.label.text")
+                                                        </label>
+                                                        <input class="form-control" id="direccion_entidad_codigopostal" name="direccion_entidad_codigopostal" type="text" placeholder="Codigo Postal" />
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="custodio-panel" class="panel panel-default hidden">
+                    <div class="panel-heading" role="tab">
+                        <div class="panel-title">
+                            <strong class="text-danger">
+                                Informaci&oacute;n Custodio
+                            </strong>
+                            <div class="pull-right">
+                                <a class="collapse-click">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-collapse collapse in" role="tabpanel">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label" for="custodio_primer_nombre">
+                                            @Model.ResourceService.GetResourceString("PagoTerceros.PrimerNombre.label.text")
+                                        </label>
+                                        <input class="form-control" id="custodio_primer_nombre" name="custodio_primer_nombre" type="text" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label" for="custodio_segundo_nombre">
+                                            @Model.ResourceService.GetResourceString("PagoTerceros.SegundoNombre.label.text")
+                                        </label>
+                                        <input class="form-control" id="custodio_segundo_nombre" name="custodio_segundo_nombre" type="text" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label" for="custodio_primer_apellido">
+                                            @Model.ResourceService.GetResourceString("PagoTerceros.PrimerApellido.label.text")
+                                        </label>
+                                        <input class="form-control" id="custodio_primer_apellido" name="custodio_primer_apellido" type="text" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label" for="custodio_segundo_apellido">
+                                            @Model.ResourceService.GetResourceString("PagoTerceros.SegundoApellido.label.text")
+                                        </label>
+                                        <input class="form-control" id="custodio_segundo_apellido" name="custodio_segundo_apellido" type="text" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label" for="">@Model.ResourceService.GetResourceString("PagoTerceros.Direccion.label.text")</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label" for="custodio_linea1">
+                                            @Model.ResourceService.GetResourceString("PagoTerceros.Linea1.label.text")
+                                        </label>
+                                        <input class="form-control" id="custodio_linea1" name="custodio_linea1" type="text" placeholder="linea 1" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label" for="custodio_linea2">
+                                            @Model.ResourceService.GetResourceString("PagoTerceros.Linea2.label.text")
+                                        </label>
+                                        <input class="form-control" id="custodio_linea2" name="custodio_linea2" type="text" placeholder="linea 2" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label" for="custodio_ciudad">
+                                            @Model.ResourceService.GetResourceString("PagoTerceros.Ciudad.label.text")
+                                        </label>
+                                        @Html.DropDownListFor(model => Model.Cities, Model.Cities, new { @class = "form-control", id = "custodio_ciudad" })
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label" for="custodio_codigopostal">
+                                            @Model.ResourceService.GetResourceString("PagoTerceros.CodigoPostal.label.text")
+                                        </label>
+                                        <input class="form-control" id="custodio_codigopostal" name="custodio_codigopostal" type="text" placeholder="Codigo Postal" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <div class="panel-title">
+                            <strong class="text-danger">
+                                Informaci&oacute;n del caso en agencia
+                            </strong>
+                            <div class="pull-right">
+                                <a class="collapse-click">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-collapse collapse in" role="tabpanel">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="agencia_numerocaso">
+                                            @Model.ResourceService.GetResourceString("PagoTerceros.NumeroCasoIdentificadorOrden.label.text")
+                                        </label>
+                                        <input class="form-control" id="agencia_numerocaso" name="agencia_numerocaso" type="text" />
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="agencia_idparticipante">
+                                            @Model.ResourceService.GetResourceString("PagoTerceros.NumeroDeParticipanteIdentificadorCaso.label.text")
+                                        </label>
+                                        <input class="form-control" id="agencia_idparticipante" name="agencia_idparticipante" type="text" />
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="agencia_monto_orden">
+                                            @Model.ResourceService.GetResourceString("PagoTerceros.MontoSegunOrden.label.text")
+                                        </label>
+                                        <input class="form-control text-right" id="agencia_monto_orden" name="agencia_monto_orden" type="text" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="name">
+                                            @Model.ResourceService.GetResourceString("PagoTerceros.OrdenDeTerminacion.label.text")
+                                        </label>
+                                        <div class="radio">
+                                            <label for="orden_terminacion">
+                                                <input id="orden_terminacion" name="orden_terminacion" type="radio" value="1" />
+                                                @Model.ResourceService.GetResourceString("PagoTerceros.Si.label.text")
+                                            </label>
+                                            <label for="orden_terminacion">
+                                                <input id="orden_terminacion" name="orden_terminacion" type="radio" value="0" />
+                                                @Model.ResourceService.GetResourceString("PagoTerceros.No.label.text")
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="fecha_terminacion">
+                                            @Model.ResourceService.GetResourceString("PagoTerceros.FechaDeTerminacion.label.text")
+                                        </label>
+                                        <div class="input-group date">
+                                            <input type="text" class="form-control" id="fecha_terminacion" name="fecha_terminacion" />
+                                            <label class="input-group-btn" for="fecha_terminacion">
+                                            <span class="btn btn-default">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="numero_orden_terminacion">
+                                            @Model.ResourceService.GetResourceString("PagoTerceros.NumeroOrdenDeTerminacion.label.text")
+                                        </label>
+                                        <input class="form-control" id="numero_orden_terminacion" name="numero_orden_terminacion" type="text" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <div class="panel-title">
+                            <strong class="text-danger">
+                                Detalle
+                            </strong>
+                            <div class="pull-right">
+                                <a class="collapse-click">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-collapse collapse in" role="tabpanel">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="radio">
+                                            <label for="tipo_pago">
+                                                <input id="tipo_pago" name="tipo_pago" type="radio" value="1" checked />
+                                                @Model.ResourceService.GetResourceString("PagoTerceros.TipoPagoUnico.label.text")
+                                            </label>
+                                            <label for="tipo_pago">
+                                                <input id="tipo_pago" name="tipo_pago" type="radio" value="2" />
+                                                @Model.ResourceService.GetResourceString("PagoTerceros.PagosMultiples.label.text")
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="unsolopago">
+                                            @Model.ResourceService.GetResourceString("PagoTerceros.UnSoloPago.label.text")
+                                        </label>
+                                        <input class="form-control text-right" id="unsolopago" name="unsolopago" type="text" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label" for="pago1">
+                                            @Model.ResourceService.GetResourceString("PagoTerceros.Pago1.label.text")
+                                        </label>
+                                        <input class="form-control text-right" id="pago1" name="pago1" type="text" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label" for="pago2">
+                                            @Model.ResourceService.GetResourceString("PagoTerceros.Pago2.label.text")
+                                        </label>
+                                        <input class="form-control text-right" id="pago2" name="pago2" type="text" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label class="control-label" for="observaciones">
+                                                @Model.ResourceService.GetResourceString("PagoTerceros.Observaciones.label.text")
+                                            </label>
+                                            <textarea class="form-control" rows="3" placeholder="Observaciones" id="observaciones" name="observaciones" required></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="pull-right">
+                                        <input id="btnNew" class="btn btn-success" type="button" value="Nuevo" />
+                                        <input id="btnSave" class="btn btn-success" type="button" value="Guardar" />
+                                        <input id="btnCancel" class="btn btn-success" type="button" value="Cancelar" />
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/thirdparties/scripts")
+}

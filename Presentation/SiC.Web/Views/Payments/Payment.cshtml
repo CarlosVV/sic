@@ -1,0 +1,281 @@
+﻿@{
+    ViewBag.Title = "Inicio";
+}
+
+@section Styles{
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/datatables")
+    @Scripts.Render("~/bundles/CaseSearch")
+}
+
+<div class="homePage">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header text-danger">
+                <h1>Forma de Pagos</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron">            
+                <p>@Model.ResourceService.GetResourceString("Sistema.Titulo.label.text")</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default" id="informacion">
+                <div class="panel-heading">
+                    <span class="panel-title">
+                        <strong class="text-danger">Información del Caso</strong>
+                        <a id="clearBtn" class="btn btn-warning btn-xs pull-right"><span class="fa fa-eraser"></span></a>
+                    </span>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="name">Lesionado</label>
+                                <input class="form-control" id="name" name="name" type="text" maxlength="75" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="ssn">Seguro Social</label>
+                                <input class="form-control" id="ssn" name="ssn" type="text" maxlength="75" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="name">Fecha de Accidente</label>
+                                <input class="form-control" id="name" name="name" type="text" maxlength="75" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="ssn">Fecha de Seguro Social</label>
+                                <input class="form-control" id="ssn" name="ssn" type="text" maxlength="75" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="name">Dirección Física</label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input class="form-control" id="name" name="name" type="text" maxlength="75" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input class="form-control" id="ssn" name="ssn" type="text" maxlength="75" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input class="form-control" id="name" name="name" type="text" maxlength="75" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input class="form-control" id="ssn" name="ssn" type="text" maxlength="75" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input class="form-control" id="ssn" name="ssn" type="text" maxlength="75" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="name">Región del tratamiento</label>
+                                <input class="form-control" id="name" name="name" type="text" maxlength="75" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="ssn">Caso de menor</label>
+                                <input class="form-control" id="ssn" name="ssn" type="checkbox" />
+                                <label class="control-label" for="ssn">Caso subrogación</label>
+                                <input class="form-control" id="ssn" name="ssn" type="checkbox" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="name">Dispensario</label>
+                                <input class="form-control" id="name" name="name" type="text" maxlength="75" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="ssn">Tutor (CI)</label>
+                                <input class="form-control" id="ssn" name="ssn" type="checkbox"/>
+                                <label class="control-label" for="ssn">Caso de muerte</label>
+                                <input class="form-control" id="ssn" name="ssn" type="checkbox"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default" id="patrono">
+                <div class="panel-heading">
+                    <span class="panel-title">
+                        <strong class="text-danger">Información del Patrono</strong>
+                        <a id="clearBtn" class="btn btn-warning btn-xs pull-right"><span class="fa fa-eraser"></span></a>
+                    </span>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="name">Nombre Patrono</label>
+                                <input class="form-control" id="name" name="name" type="text" maxlength="75" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="ssn">EIN</label>
+                                <input class="form-control" id="ssn" name="ssn" type="text" maxlength="75" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="name">Número de póliza</label>
+                                <input class="form-control" id="name" name="name" type="text" maxlength="75" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="ssn">Fecha de Seguro Social</label>
+                                <input class="form-control" id="ssn" name="ssn" type="text" maxlength="75" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default" id="patrono">
+                <div class="panel-heading">
+                    <span class="panel-title">
+                        <strong class="text-danger">Información de transacción</strong>
+                        <a id="clearBtn" class="btn btn-warning btn-xs pull-right"><span class="fa fa-eraser"></span></a>
+                    </span>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="name">Clase de Documento</label>
+                                <input class="form-control" id="name" name="name" type="text" maxlength="75" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="ssn">Núm. transacción</label>
+                                <input class="form-control" id="ssn" name="ssn" type="text" maxlength="75" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="name">Fecha Contable</label>
+                                <input class="form-control" id="name" name="name" type="text" maxlength="75" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="ssn">Fecha Documento</label>
+                                <input class="form-control" id="ssn" name="ssn" type="text" maxlength="75" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default" id="patrono">
+                <div class="panel-heading">
+                    <span class="panel-title">
+                        <strong class="text-danger">Detalle</strong>
+                        <a id="clearBtn" class="btn btn-warning btn-xs pull-right"><span class="fa fa-eraser"></span></a>
+                    </span>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="name">Cantidad adjudicada</label>
+                                <input class="form-control" id="name" name="name" type="text" maxlength="75" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="ssn">Pago inicial</label>
+                                <input class="form-control" id="ssn" name="ssn" type="text" maxlength="75" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="name">Mensualidad</label>
+                                <input class="form-control" id="name" name="name" type="text" maxlength="75" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="ssn">Semanas</label>
+                                <input class="form-control" id="ssn" name="ssn" type="text" maxlength="75" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="name">Fecha Adjudicación</label>
+                                <input class="form-control" id="name" name="name" type="text" maxlength="75" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

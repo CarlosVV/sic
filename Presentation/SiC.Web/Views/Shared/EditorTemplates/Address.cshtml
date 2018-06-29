@@ -1,0 +1,45 @@
+﻿@model Address
+
+<div class="row">
+    <div class="col-md-12">
+        @Html.HiddenFor(m => m.Id)
+        @Html.HiddenFor(m => m.EmployerId)
+        @Html.HiddenFor(m => m.AddressTypeId)
+        <div class="form-group">
+            <label for="fisicaLn1" class="control-label">@Html.DisplayFor(m => m.AddressType.Description)</label>
+            @Html.TextBoxFor(m => m.Line1, new { @class = "form-control", placeholder = "Línea 1" })
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            @Html.TextBoxFor(m => m.Line2, new { @class = "form-control", placeholder = "Línea 2" })
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            @Html.DropDownListFor(m => m.CountryId
+                                            , new SelectList(SelectListItemRepo.GetCountries()
+                                                     , "id", "Name", Model.CountryId)
+                                                    , "País"
+                                                     , new { @class = "form-control"})
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            @Html.DropDownListFor(m => m.CityId
+                     , new SelectList(SelectListItemRepo.GetCities(Model.CountryId)
+                                            , "id", "Name", Model.CityId)
+                                                    , "Ciudad"
+                                                     , new { @class = "form-control"} )
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            @Html.TextBoxFor(m => m.ZipCode, new { @class = "form-control", maxlength = 9 })
+        </div>
+    </div>
+</div>

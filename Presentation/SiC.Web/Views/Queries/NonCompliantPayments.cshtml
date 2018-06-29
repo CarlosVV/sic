@@ -1,0 +1,29 @@
+﻿@using Nagnoi.SiC.Web.Models.Query
+@model QueriesViewModel
+
+
+@{
+    ViewBag.Title = "NonCompliantPayments";
+}
+
+
+@section Scripts {
+    @*@Scripts.Render("~/bundles/Search")*@
+    @Scripts.Render("~/bundles/NonCompliantPayments");
+}
+
+@section Styles{
+    @Styles.Render("~/content/QueryStylesheets")
+}
+
+<div class="homePage">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header text-danger">
+                <h1>Consultas</h1>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_NonCompliantPayment");
+
+</div>

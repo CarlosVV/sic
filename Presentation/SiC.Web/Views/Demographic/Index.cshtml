@@ -1,0 +1,34 @@
+﻿@model Nagnoi.SiC.Web.Models.Demographic.DemographicViewModel
+
+@section Scripts {
+    @Scripts.Render("~/bundles/Demographic")
+    @Scripts.Render("~/bundles/datatables")
+    @*@Scripts.Render("~/bundles/datatableseditor")*@
+}
+
+@section Styles {
+    @Styles.Render("~/content/datatables")
+}
+
+@{
+    ViewBag.Title = "Actualización de Datos Demográficos";
+}
+
+<div class="homePage">
+    <div class="row"> 
+        <div class="col-md-12">
+            <div class="page-header text-danger">
+                <h1>Actualización de Datos Demográficos</h1>
+            </div>
+        </div>
+    </div>
+    @{
+        Html.RenderAction("SearchBox", "Case");
+    }
+    @{ Html.EnableClientValidation(true); }
+    @{ Html.EnableUnobtrusiveJavaScript(true); }
+
+    @*@Html.Partial("_UpdateParticipantTable")*@
+    @Html.Partial("_UpdateData")
+    @Html.Partial("_UpdateDataParticipant")
+</div>

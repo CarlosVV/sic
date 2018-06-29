@@ -1,0 +1,39 @@
+﻿@model Nagnoi.SiC.Web.Models.Demographic.DemographicViewModel
+
+<div class="row" id="row4Beneficiary">
+    <div class="col-md-2">
+        <div class="form-group">
+            <label class="control-label" for="relationship">@Model.ResourceService.GetResourceString("Demografico.Relacion.label.text")</label>
+            @Html.DropDownListFor(model => Model.RelationshipTypeId, Model.RelationshipType, new { @class = "form-control relationshipType", Name = "relationshipType" })
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <div id="hasChildrenInfo" hidden>
+            <label class="control-label" for="hasChildren">@Model.ResourceService.GetResourceString("Demografico.TieneHijos.label.text")</label>
+            <div>
+                <label class="radio-inline">
+                    <input type="radio" name="hasChildren" id="hasChildrenTrue"> Sí
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="hasChildren" id="hasChildrenFalse"> No
+                </label>
+            </div>
+        </div>
+        <div id="isEnmancipatedInfo" hidden>
+            <label class="control-label" for="isEnmancipated">@Model.ResourceService.GetResourceString("Demografico.Enmancipado.label.text")</label>
+            <div>
+                <label class="radio-inline">
+                    <input type="radio" name="isEnmancipated" id="isEnmancipatedTrue"> Sí
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="isEnmancipated" id="isEnmancipatedFalse"> No
+                </label>
+            </div>
+        </div>
+        <div class="form-group otherRelationshipTypeInfo hidden">
+            <label class="control-label" for="otherRelationshipType">@Model.ResourceService.GetResourceString("Demografico.OtroTipoRelacion.label.text")</label>
+            <input class="form-control otherRelationshipType" type="text" maxlength="25" value="" />
+        </div>
+    </div>
+</div>

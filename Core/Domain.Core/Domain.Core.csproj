@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{85267196-B790-4DF0-B537-280C9FAE0D87}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Nagnoi.SiC.Domain.Core</RootNamespace>
+    <AssemblyName>Nagnoi.SiC.Domain.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <OutputPath>bin\Staging\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Model\AuditableEntity.cs" />
+    <Compile Include="Model\Entity\ModifiedReason.cs" />
+    <Compile Include="Model\Entity\Occupation.cs" />
+    <Compile Include="Model\IAuditableEntity.cs" />
+    <Compile Include="Model\ISoftDeletable.cs" />
+    <Compile Include="Model\Notification\MessageTemplate.cs" />
+    <Compile Include="Model\Payment\AdjustmentStatus.cs" />
+    <Compile Include="Model\Payment\PaymentAdjustmentStatusEnum.cs" />
+    <Compile Include="Model\Payment\PaymentBalance.cs" />
+    <Compile Include="Model\Payment\PaymentClassEnum.cs" />
+    <Compile Include="Model\Payment\PaymentConceptEnum.cs" />
+    <Compile Include="Model\Payment\PaymentStatusEnum.cs" />
+    <Compile Include="Model\Payment\PaymentTransferTypeEnum.cs" />
+    <Compile Include="Model\Payment\TransactionTypeEnum.cs" />
+    <Compile Include="Model\Results\RelatedCasesByCompensationRegion.cs" />
+    <Compile Include="Model\Sap\SapTransaction.cs" />
+    <Compile Include="Model\SiC\AdjustmentReason.cs" />
+    <Compile Include="Model\SiC\CaseDetailDemographic.cs" />
+    <Compile Include="Model\SiC\CompensationRegion2.cs" />
+    <Compile Include="Model\SiC\ProcessSourceEnum.cs" />
+    <Compile Include="Model\SiC\TransaccionesAprobar.cs" />
+    <Compile Include="Model\SiC\CaseRelationship.cs" />
+    <Compile Include="Model\SiC\TransactionDetail.cs" />
+    <Compile Include="Model\SiC\CompensationRegion.cs" />
+    <Compile Include="Model\Payment\PaymentExceptions.cs" />
+    <Compile Include="Model\Security\AccessControlLevel.cs" />
+    <Compile Include="Model\Inca\ActiveIdent.cs" />
+    <Compile Include="Model\Inca\ActiveOnOff.cs" />
+    <Compile Include="Model\Entity\Address.cs" />
+    <Compile Include="Model\Audit\ActivityLog.cs" />
+    <Compile Include="Model\Audit\ActivityLogTypeExtensions.cs" />
+    <Compile Include="Model\Audit\ActivityLogType.cs" />
+    <Compile Include="Model\Entity\AddressType.cs" />
+    <Compile Include="Model\Entity\ApplyTo.cs" />
+    <Compile Include="Model\SiC\Cancellation.cs" />
+    <Compile Include="Model\Location\City.cs" />
+    <Compile Include="Model\Location\Clinic.cs" />
+    <Compile Include="Model\SiC\Compensation.cs" />
+    <Compile Include="Model\Location\Country.cs" />
+    <Compile Include="Model\Security\FunctionalityExtensions.cs" />
+    <Compile Include="Model\SiC\KeyRiskIndicator.cs" />
+    <Compile Include="Model\Logging\Log4Net_Log.cs" />
+    <Compile Include="Model\Logging\AspNetLogEntry.cs" />
+    <Compile Include="Model\Entity\Beneficiary.cs" />
+    <Compile Include="Model\Results\BuscarCasos_Result.cs" />
+    <Compile Include="Model\SiC\Case.cs" />
+    <Compile Include="Model\Entity\CivilStatus.cs" />
+    <Compile Include="Model\Payment\Class.cs" />
+    <Compile Include="Model\Payment\Concept.cs" />
+    <Compile Include="Model\SiC\CaseDetail.cs" />
+    <Compile Include="Model\Logging\ElmahLogEntry.cs" />
+    <Compile Include="Model\SiC\EmployerStatus.cs" />
+    <Compile Include="Model\Entity\Entity.cs" />
+    <Compile Include="Model\Security\Functionality.cs" />
+    <Compile Include="Model\Entity\Gender.cs" />
+    <Compile Include="Model\Logging\ILogEntry.cs" />
+    <Compile Include="Model\Results\InformacionCaso_Result.cs" />
+    <Compile Include="Model\Logging\Log.cs" />
+    <Compile Include="Model\Logging\Log4NetLogEntry.cs" />
+    <Compile Include="Model\Logging\LogLevelType.cs" />
+    <Compile Include="Model\Logging\LogProviderType.cs" />
+    <Compile Include="Model\Entity\Master.cs" />
+    <Compile Include="Model\Security\Menu.cs" />
+    <Compile Include="Model\Audit\AuditObjectType.cs" />
+    <Compile Include="Model\Payment\MonthlyConcept.cs" />
+    <Compile Include="Model\Audit\ObjectType.cs" />
+    <Compile Include="Model\Entity\ParticipantStatus.cs" />
+    <Compile Include="Model\Entity\ParticipantType.cs" />
+    <Compile Include="Model\Payment\Payment.cs" />
+    <Compile Include="Model\Security\Profile.cs" />
+    <Compile Include="Model\Location\Region.cs" />
+    <Compile Include="Model\Entity\RelationshipCategory.cs" />
+    <Compile Include="Model\Entity\RelationshipType.cs" />
+    <Compile Include="Model\SiC\TransactionDetail2.cs" />
+    <Compile Include="Model\Simera\SimeraBeneficiary.cs" />
+    <Compile Include="Model\Simera\SimeraTransaction.cs" />
+    <Compile Include="Model\Simera\SimeraTransactionEnum.cs" />
+    <Compile Include="Model\Translation\ResourcesString.cs" />
+    <Compile Include="Model\Results\ResumenPagosPorBeneficiario_Result.cs" />
+    <Compile Include="Model\Results\ResumenPagosPorConcepto_Result.cs" />
+    <Compile Include="Model\Configuration\Setting.cs" />
+    <Compile Include="Model\Location\State.cs" />
+    <Compile Include="Model\Payment\Status.cs" />
+    <Compile Include="Model\Payment\ThirdPartySchedule.cs" />
+    <Compile Include="Model\SiC\Transaction.cs" />
+    <Compile Include="Model\SiC\TransactionType.cs" />
+    <Compile Include="Model\Payment\TransferType.cs" />
+    <Compile Include="Model\Security\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IAddressRepository.cs" />
+    <Compile Include="Repositories\ICaseDetailRepository.cs" />
+    <Compile Include="Repositories\IEntityRepository.cs" />
+    <Compile Include="Repositories\IPaymentRepository.cs" />
+    <Compile Include="Repositories\IProfileRepository.cs" />
+    <Compile Include="Repositories\IAccessControlLevelRepository.cs" />
+    <Compile Include="Repositories\IActivityLogRepository.cs" />
+    <Compile Include="Repositories\IActivityLogTypeRepository.cs" />
+    <Compile Include="Repositories\IApplyToRepository.cs" />
+    <Compile Include="Repositories\IAspNetLogEntryRepository.cs" />
+    <Compile Include="Repositories\IBeneficiaryRepository.cs" />
+    <Compile Include="Repositories\ICaseRepository.cs" />
+    <Compile Include="Repositories\IConceptRepository.cs" />
+    <Compile Include="Repositories\ICivilStatusRepository.cs" />
+    <Compile Include="Repositories\IElmahLogEntryRepository.cs" />
+    <Compile Include="Repositories\IFunctionalityRepository.cs" />
+    <Compile Include="Repositories\IGenderRepository.cs" />
+    <Compile Include="Repositories\IClassRepository.cs" />
+    <Compile Include="Repositories\ILog4NetLogEntryRepository.cs" />
+    <Compile Include="Repositories\ILogRepository.cs" />
+    <Compile Include="Repositories\IRelationshipCategoryRepository.cs" />
+    <Compile Include="Repositories\IRelationshipTypeRepository.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\IResourceRepository.cs" />
+    <Compile Include="Repositories\ISettingRepository.cs" />
+    <Compile Include="Repositories\ISimeraBeneficiaryRepository.cs" />
+    <Compile Include="Repositories\IThirdPartyScheduleRepository.cs" />
+    <Compile Include="Repositories\ITransactionRepository.cs" />
+    <Compile Include="Repositories\ITransactionTypeRepository.cs" />
+    <Compile Include="Repositories\IAddressTypeRepository.cs" />
+    <Compile Include="Repositories\ITransferTypeRepository.cs" />
+    <Compile Include="Services\IAccessControlLevelService.cs" />
+    <Compile Include="Services\IActivityLogService.cs" />
+    <Compile Include="Services\IApplyToService.cs" />
+    <Compile Include="Services\IBeneficiaryService.cs" />
+    <Compile Include="Services\ICaseService.cs" />
+    <Compile Include="Services\ICompensationRegion.cs" />
+    <Compile Include="Services\ICompensationRegionService.cs" />
+    <Compile Include="Services\IConceptService.cs" />
+    <Compile Include="Services\ICivilStatusService.cs" />
+    <Compile Include="Services\IEmailSenderService.cs" />
+    <Compile Include="Services\IEntityService.cs" />
+    <Compile Include="Services\IGenderService.cs" />
+    <Compile Include="Services\IClassService.cs" />
+    <Compile Include="Services\ILocationService.cs" />
+    <Compile Include="Services\ILoggingService.cs" />
+    <Compile Include="Services\IMenuService.cs" />
+    <Compile Include="Services\IOccupationService.cs" />
+    <Compile Include="Services\IPaymentService.cs" />
+    <Compile Include="Services\IRelationshipCategoryService.cs" />
+    <Compile Include="Services\ISapTransactionService.cs" />
+    <Compile Include="Services\ISimeraBeneficiaryService.cs" />
+    <Compile Include="Services\ISettingService.cs" />
+    <Compile Include="Services\IRelationshipTypeService.cs" />
+    <Compile Include="Services\IResourceService.cs" />
+    <Compile Include="Services\ISimeraTransactionService.cs" />
+    <Compile Include="Services\IMessageTemplateService.cs" />
+    <Compile Include="Services\ITransactionService.cs" />
+    <Compile Include="Services\ITransactionTypeService.cs" />
+    <Compile Include="Services\IAddressTypeService.cs" />
+    <Compile Include="Services\IServiceConfiguration.cs" />
+    <Compile Include="Services\ITransferTypeService.cs" />
+    <Compile Include="Services\IUserService.cs" />
+    <Compile Include="Services\IModifiedReasonService.cs" />
+    <Compile Include="Services\IParticipantTypeService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure.Core\Infrastructure.Core.csproj">
+      <Project>{0387c973-ed6b-4787-80d5-3d7c541e8389}</Project>
+      <Name>Infrastructure.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,48 @@
+﻿@model Nagnoi.SiC.Web.Models.Demographic.DemographicViewModel
+
+<div class="row" id="row7Beneficiary">
+    @* row:6 *@
+    <div class="col-md-2">
+        <div class="form-group">
+            <label class="control-label" for="isWidow">@Model.ResourceService.GetResourceString("Demografico.CertificacionDeViuda.label.text")</label>
+            <div>
+                <label class="radio-inline">
+                    <input type="radio" name="isWidow" id="widowTrue" value="true"> Sí
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="isWidow" id="widowFalse" class="radioFalse" value="false"> No
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <div class="form-group" id="widowInfo" hidden>
+            <label class="control-label" for="widowCertificationDate">@Model.ResourceService.GetResourceString("Demografico.Fecha.label.text")</label>
+            <div class="input-group date" data-provide="datepicker">
+                <input type="text" class="form-control" id="widowCertificationDate" name="widowCertificationDate">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label class="control-label" for="occupation">@Model.ResourceService.GetResourceString("Demografico.Ocupacion.label.text")</label>
+            @Html.DropDownListFor(model => Model.OccupationId, Model.Occupations, new { @class = "form-control search", @id = "occupation", Name = "occupation" })
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <div class="form-group">
+            @* Convertir este control a una lista *@
+            <label class="control-label" for="monthlyIncome">@Model.ResourceService.GetResourceString("Demografico.IngresoMensual.label.text")</label>
+            <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="text" class="form-control text-right money" aria-label="Monto Total" id="monthlyIncome" maxlength="15"/>
+            </div>
+        </div>
+    </div>
+</div>

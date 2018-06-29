@@ -1,0 +1,162 @@
+<div id="detalle" class="panel panel-default">
+    <div class="panel-heading">
+        <div class="panel-title">
+            <strong class="text-danger">
+                Detalle
+            </strong>
+            <div class="pull-right">
+                <a class="collapse-click">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <form id="frmPendingDiet" action="/" method="post">
+            <fieldset>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label" for="dieta_fechadecision">
+                                @Model.ResourceService.GetResourceString("PagoDietas.FechaDecision.label.text")
+                            </label>
+                            <div class='input-group date'>
+                                <input type="text" class="form-control" id="dieta_fechadecision" name="dieta_fechadecision" readonly />
+                                <label class="input-group-btn" for="dieta_fechadecision">
+                                    <span class="btn btn-default">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-md-offset-1">
+                        <h5>
+                            <strong class="text-danger">
+                                Información de Comisión Industrial
+                            </strong>
+                        </h5>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="dieta_fvisita">
+                                        @Model.ResourceService.GetResourceString("PagoDietas.FechaVisita.label.text")
+                                    </label>
+                                    <div class='input-group date'>
+                                        <input type="text" class="form-control" id="dieta_fvisita" name="dieta_fvisita" readonly />
+                                        <label class="input-group-btn" for="dieta_fvisita">
+                                            <span class="btn btn-default">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="dieta_fnotificacion">
+                                        @Model.ResourceService.GetResourceString("PagoDietas.FechaNotificacion.label.text")
+                                    </label>
+                                    <div class='input-group date'>
+                                        <input type="text" class="form-control" id="dieta_fnotificacion" name="dieta_fnotificacion" readonly />
+                                        <label class="input-group-btn" for="dieta_fnotificacion">
+                                            <span class="btn btn-default">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="dieta_numerocaso">
+                                        @Model.ResourceService.GetResourceString("PagoDietas.NumeroCaso.label.text")
+                                    </label>
+                                    <input class="form-control" id="dieta_numerocaso" name="dieta_numerocaso" type="text" maxlength="75" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h5>
+                    <strong class="text-danger">
+                        Periodo
+                    </strong>
+                </h5>
+                <hr />
+                <div class="row">
+                    <div class="col-md-12">
+                        <button id="btnNewPendigDietPeriod" class="btn btn-success pull-right" type="button">
+                            Nuevo Pago
+                        </button>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <table id="tblPendingDietPeriod" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th class="text-center">
+                                        @Model.ResourceService.GetResourceString("PagoDietas.Desde.header.text")
+                                    </th>
+                                    <th class="text-center">
+                                        @Model.ResourceService.GetResourceString("PagoDietas.Hasta.header.text")
+                                    </th>
+                                    <th class="hidden">
+                                        Nro. Dias
+                                    </th>
+                                    <th class="text-center">
+                                        @Model.ResourceService.GetResourceString("PagoDietas.Cantidad.header.text")
+                                    </th>
+                                    <th>
+                                        Descuento
+                                    </th>
+                                    <th>
+                                        Total a Pagar
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                            <tfoot></tfoot>
+                        </table>
+                    </div>
+                </div>
+                <div class="row hidden">
+                    <div class="col-md-12">
+                        <div class="col-md-offset-9">
+                            <div class="form-group">
+                                <label class="control-label" for="dieta_montototal">
+                                    @Model.ResourceService.GetResourceString("PagoDietas.MontoTotal.label.text")
+                                </label>
+                                <input class="form-control" id="dieta_montototal" name="dieta_montototal" type="text" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="form-group">
+                            <label class="control-label" for="dieta_observaciones">
+                                @Model.ResourceService.GetResourceString("PagoDietas.Observaciones.label.text")
+                            </label>
+                            <p>
+                                <textarea class="form-control" rows="5" id="dieta_observaciones" name="dieta_observaciones" required></textarea>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="pull-right">
+            <input class="btn btn-success nuevo" type="button" value="Nuevo" />
+            <input id="btnSavePendingDiet" class="btn btn-success" type="button" value="Guardar" />
+            <input class="btn btn-success cancelar" type="button" value="Cancelar" />
+        </div>
+    </div>
+</div>

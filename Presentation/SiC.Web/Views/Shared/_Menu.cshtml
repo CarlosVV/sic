@@ -1,0 +1,63 @@
+﻿@using Nagnoi.SiC.Domain.Core.Services
+@using Nagnoi.SiC.Infrastructure.Core.Dependencies
+@using Nagnoi.SiC.Infrastructure.Core.Helpers
+
+@{
+    var menus = IoC.Resolve<IMenuService>().GetAllMenus().Where(m => m.CanDisplay);
+}
+
+<div class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+        @foreach (var parent in menus.Where(m => m.ParentId == null && m.IsActive).OrderBy(p => p.DisplayOrder))
+        {
+            var children = menus.Where(m => m.ParentId == parent.MenuId && m.IsActive);
+            if (children.Any())
+            {
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        @parent.MenuName
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        @foreach (var sm in children.OrderBy(p => p.DisplayOrder))
+                        {
+                            var url = sm.MenuUrl;
+                            if (url.IndexOf("Action:") >= 0)
+                            {
+                                url = sm.MenuUrl.Replace("Action:", " ").Trim();
+                                var els = url.Split(',');
+                                url = Url.Action(els[1].Replace('"', ' ').Trim(), els[2].Replace('"', ' ').Trim());
+                                <li>
+                                    <a href='@url'>@els[0].Replace('"', ' ').Trim()</a>
+                                </li>
+                            }
+                            else {
+                                <li>@Html.Raw(sm.MenuUrl)</li>
+                            }
+                        }
+                    </ul>
+                </li>
+            }
+            else {
+                var url = parent.MenuUrl;
+                if (url.IndexOf("Action:") >= 0)
+                {
+                    url = parent.MenuUrl.Replace("Action:", " ").Trim();
+                    var els = url.Split(',');
+                    url = Url.Action(els[1].Replace('"', ' ').Trim(), els[2].Replace('"', ' ').Trim());
+                    <li>
+                        <a href='@url'>@els[0].Replace('"', ' ').Trim()</a>
+                    </li>
+                }
+                else {
+                    <li>@Html.Raw(parent.MenuUrl)</li>
+                }
+            }
+        }
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a href="#">@WebHelper.GetUserName()</a>
+        </li>
+    </ul>
+</div>

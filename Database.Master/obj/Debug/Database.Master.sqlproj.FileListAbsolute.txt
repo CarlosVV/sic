@@ -1,0 +1,9 @@
+G:\Sic\Source\Database.Master\bin\Debug\Database.Master.dacpac
+G:\Sic\Source\Database.Master\bin\Debug\Database.Master.dll
+G:\Sic\Source\Database.Master\bin\Debug\Database.Master.pdb
+G:\Sic\Source\Database.Master\obj\Debug\Model.xml
+G:\Sic\Source\Database.Master\obj\Debug\refactor.xml
+G:\Sic\Source\Database.Master\obj\Debug\postdeploy.sql
+G:\Sic\Source\Database.Master\obj\Debug\predeploy.sql
+G:\Sic\Source\Database.Master\obj\Debug\Database.Master.dll
+G:\Sic\Source\Database.Master\obj\Debug\Database.Master.pdb

@@ -1,0 +1,25 @@
+﻿@model Nagnoi.SiC.Web.Models.Demographic.DemographicViewModel
+
+<div class="row">
+    @* row:1 *@
+    <div class="col-md-2">
+        <div class="form-group">
+            <label class="control-label" for="participantType">@Model.ResourceService.GetResourceString("Demografico.TipoDeParticipante.label.text")</label>
+            @Html.DropDownListFor(model => Model.ParticipantTypeId, Model.ParticipantType, new { @class = "form-control search", @id = "participantType", Name = "participantType" })
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <div class="form-group" id="lawyerInfo" hidden>
+            <label class="control-label" for="lawyer">@Model.ResourceService.GetResourceString("Demografico.OpcionDeAbogados.label.text")</label>
+            @Html.DropDownListFor(model => Model.EntityId, Model.Lawyer, new { @class = "form-control search", @id = "lawyer", Name = "lawyer" })
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <div class="form-group" id="firmInfo" hidden>
+            <label class="control-label" for="firm">@Model.ResourceService.GetResourceString("Demografico.Bufete.label.text")</label>
+            <input class="form-control" id="firm" name="firm" type="text" maxlength="100" />
+        </div>
+    </div>
+</div>

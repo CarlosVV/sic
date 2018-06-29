@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Inicio";
+}
+
+@section Styles{
+ 
+}
+
+
+@section Scripts {
+    <script type="text/javascript">
+        var caseFolderId = "@ViewBag.caseFolderId";
+        var caseNumber = "@ViewBag.caseNumber";
+    </script>
+
+    @Scripts.Render("~/bundles/PaymentSumary")
+
+}
+<div class="homePage">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header text-danger">
+                <h2>Historial de Pagos</h2>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_PaymentsSumary")
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <a href="#" onclick="window.open('http://10.2.249.52/ReportServer/Pages/ReportViewer.aspx?%2fProyectos%2fMPRC%2fCFSE-HistorialPagos&rs:Command=Render&CaseNumber=@ViewBag.caseNumber', '_blank');"><input type="button" value="Reporte de Historial de Pagos" class="btn btn-dark btn-block" /></a>
+        </div>
+    </div>
+</div>

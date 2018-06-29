@@ -1,0 +1,14 @@
+G:\Sic\Source\Infrastructure\Infrastructure.Core\bin\Debug\Nagnoi.SiC.Infrastructure.Core.dll
+G:\Sic\Source\Infrastructure\Infrastructure.Core\bin\Debug\Nagnoi.SiC.Infrastructure.Core.pdb
+G:\Sic\Source\Infrastructure\Infrastructure.Core\bin\Debug\Elmah.dll
+G:\Sic\Source\Infrastructure\Infrastructure.Core\bin\Debug\log4net.dll
+G:\Sic\Source\Infrastructure\Infrastructure.Core\bin\Debug\Newtonsoft.Json.dll
+G:\Sic\Source\Infrastructure\Infrastructure.Core\bin\Debug\StructureMap.dll
+G:\Sic\Source\Infrastructure\Infrastructure.Core\bin\Debug\StructureMap.Web.dll
+G:\Sic\Source\Infrastructure\Infrastructure.Core\bin\Debug\log4net.xml
+G:\Sic\Source\Infrastructure\Infrastructure.Core\bin\Debug\Newtonsoft.Json.xml
+G:\Sic\Source\Infrastructure\Infrastructure.Core\bin\Debug\StructureMap.Web.pdb
+G:\Sic\Source\Infrastructure\Infrastructure.Core\bin\Debug\StructureMap.Web.xml
+G:\Sic\Source\Infrastructure\Infrastructure.Core\obj\Debug\Nagnoi.SiC.Infrastructure.Core.dll
+G:\Sic\Source\Infrastructure\Infrastructure.Core\obj\Debug\Nagnoi.SiC.Infrastructure.Core.pdb
+G:\Sic\Source\Infrastructure\Infrastructure.Core\obj\Debug\Infrastructure.Core.csprojResolveAssemblyReference.cache

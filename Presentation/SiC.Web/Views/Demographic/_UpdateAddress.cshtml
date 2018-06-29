@@ -1,0 +1,94 @@
+﻿@model Nagnoi.SiC.Web.Models.Demographic.DemographicViewModel
+<div class="row col-xs-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Dirección</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                @* address row: 1 *@
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label" for="addressLine1">@Model.ResourceService.GetResourceString("Demografico.Linea1.label.text")</label>
+                        <input class="form-control addressLine1 address-group" name="addressLine1" type="text" maxlength="60" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label" for="addressLine2">@Model.ResourceService.GetResourceString("Demografico.Linea2.label.text")</label>
+                        <input class="form-control addressLine2" name="addressLine2" type="text" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @* address row: 2 *@
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label" for="country">@Model.ResourceService.GetResourceString("Demografico.Pais.label.text")</label>
+                        @Html.DropDownListFor(model => Model.CountryId, Model.Countries, new { @class = "form-control search country address-group", Name = "country" })
+                    </div>
+                </div>
+                <div class="col-md-2 stateInfo">
+                    <div class="form-group">
+                        <label class="control-label" for="state">@Model.ResourceService.GetResourceString("Demografico.Estado.label.text")</label>
+                        @Html.DropDownListFor(model => Model.StateId, Model.States, new { @class = "form-control search state", Name = "state", @disabled = true })
+                    </div>
+                </div>
+                <div class="col-md-2 cityInfo">
+                    <div class="form-group">
+                        <label class="control-label" for="city">@Model.ResourceService.GetResourceString("Demografico.Ciudad.label.text")</label>
+                        @Html.DropDownListFor(model => Model.CityId, Model.Cities, new { @class = "form-control search city address-group", Name = "city", @disabled = "disabled" })
+                    </div>
+                </div>
+                <div class="col-md-2 zipcodeInfo">
+                    <div class="form-group">
+                        <label class="control-label" for="zipcode">@Model.ResourceService.GetResourceString("Demografico.ZipCode.label.text")</label>
+                        <input class="form-control zipcode address-group" name="zipcode" type="text" maxlength="10" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label" for="email">@Model.ResourceService.GetResourceString("Demografico.Email.label.text")</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">&#64;</span>
+                            <input class="form-control email" name="email" type="email" maxlength="100" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @* Convertir este control a una lista *@
+                        <label class="control-label" for="homePhone">@Model.ResourceService.GetResourceString("Demografico.TelefonoCasa.label.text")</label>
+                        <input class="form-control left homePhone phone-group" minlength="14" name="homePhone" type="text" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label" for="cellPhone">@Model.ResourceService.GetResourceString("Demografico.TelefonoCelular.label.text")</label>
+                        <input class="form-control left cellPhone phone-group" minlength="14" name="cellPhone" type="text" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label" for="workPhone">@Model.ResourceService.GetResourceString("Demografico.TelefonoTrabajo.label.text")</label>
+                        <input class="form-control left workPhone phone-group" minlength="14" name="workPhone" type="text" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label" for="faxPhone">@Model.ResourceService.GetResourceString("Demografico.TelefonoFax.label.text")</label>
+                        <input class="form-control left faxPhone phone-group" minlength="14" name="faxPhone" type="text" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label" for="otherPhone">@Model.ResourceService.GetResourceString("Demografico.OtroTelefono.label.text")</label>
+                        <input class="form-control left otherPhone phone-group" minlength="14" name="otherPhone" type="text" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

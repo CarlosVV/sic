@@ -1,0 +1,65 @@
+﻿@using CFSEPatronos.DAL.Models
+
+@model Contact
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default" id="contactPanel">
+            <div class="panel-heading">
+                <h1 class="panel-title">Información de Contacto</h1>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="contactName" class="control-label">Nombre</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                @Html.TextBoxFor(m => m.ContactName, new { @class = "form-control", @minlength = "3", @maxlength = "80", @disabled = "disabled" })
+                                @Html.HiddenFor(m => m.Id)@Html.HiddenFor(m => m.EmployerId)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="contactName" class="control-label">E-Mail</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @maxlength = "80", @disabled = "disabled" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="Phone" class="control-label">Teléfono</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-phone-alt"></span></span>
+                                @Html.TextBoxFor(m => m.Phone.phoneNumber, new { @class = "form-control"})
+                                @Html.HiddenFor(m => m.Phone.id)
+                                @Html.HiddenFor(m => m.Phone.phoneTypeId)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="contactName" class="control-label">Ext</label>
+                            @Html.TextBoxFor(m => m.Phone.phoneExt, new { @class = "form-control", @maxlength = "10" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="contactName" class="control-label">Fax</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="fa fa-fax"></span></span>
+                                @Html.TextBoxFor(m => m.Fax.phoneNumber, new { @class = "form-control" })
+                                @Html.HiddenFor(m => m.Fax.id)
+                                @Html.HiddenFor(m => m.Fax.phoneTypeId)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

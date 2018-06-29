@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [Payment]
+    AUTHORIZATION [dbo];
+

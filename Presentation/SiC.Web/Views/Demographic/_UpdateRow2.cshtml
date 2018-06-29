@@ -1,0 +1,30 @@
+﻿<div class="row">
+    @* row:2 *@
+    <div class="col-md-2">
+        <div class="form-group">
+            <label class="control-label" for="firstName">@Model.ResourceService.GetResourceString("Demografico.PrimerNombre.label.text")</label>
+            <input class="form-control firstName" name="firstName" type="text" maxlength="50" value="" />
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label class="control-label" for="middleName">@Model.ResourceService.GetResourceString("Demografico.SegundoNombre.label.text")</label>
+            <input class="form-control middleName" name="middleName" type="text" maxlength="50" value="" />
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label class="control-label" for="lastName">@Model.ResourceService.GetResourceString("Demografico.PrimerApellido.label.text")</label>
+            <input class="form-control lastName" name="lastName" type="text" maxlength="50" value="" />
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label class="control-label" for="secondLastName">@Model.ResourceService.GetResourceString("Demografico.SegundoApellido.label.text")</label>
+            <input class="form-control secondLastName" name="secondLastName" type="text" maxlength="50" value="" />
+        </div>
+    </div>
+</div>

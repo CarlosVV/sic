@@ -1,0 +1,146 @@
+﻿@using Patronos.WebApplication.Helpers
+@model EmployerInformationResult
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="panel-title">
+                    <strong class="text-danger">Información de Patrono</strong>@if (ViewBag.HideProfileBtn == null || !ViewBag.HideProfileBtn)
+                    {<a class="btn btn-dark btn-xs pull-right" href="/Employer/EmployerProfile/@ViewBag.FindingId">Ver Perfil</a>}
+                </span>
+            </div>
+            <div class="panel-body">
+                @if (ViewBag.SegmentedName == null || !ViewBag.SegmentedName)
+                {
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="employerNombre">Nombre</label>
+                                @Html.TextBoxFor(m => m.EmployerName, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="row">
+                        <div class="col-md-1">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="" id="EmployerMasterFlag" name="EmployerMasterFlag" disabled checked>
+                                    Master
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="employerNombre">Nombre</label>
+                                @Html.TextBoxFor(m => m.EmployerName1, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="employerNombre">Nombre</label>
+                                @Html.TextBoxFor(m => m.EmployerName2, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="employerNombre">Nombre</label>
+                                @Html.TextBoxFor(m => m.EmployerName3, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="employerNombre">Nombre</label>
+                                @Html.TextBoxFor(m => m.EmployerName4, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="employerDBA">Haciendo negocios como (DBA)</label>
+                            @Html.TextBoxFor(m => m.EmployerLegalName, new { @class = "form-control", @disabled = "disabled" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="employerEIN">EIN</label>
+                            @Html.TextBoxFor(m => m.EmployerEIN, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="employerNoPoliza">Número de Póliza</label>
+                            @Html.TextBoxFor(m => m.Policy, new { @class = "form-control", @disabled = "disabled" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="employerNAICS">NAICS</label>
+                            @Html.DropDownListFor(m => m.NAICSId, new SelectList(SelectListItemRepo.GetNAICS()
+                                            , "id", "DescriptionAndCode", Model.NAICSId)
+                                            , ""
+                                                     , new { @class = "form-control", @disabled = "disabled" })
+                        </div>
+                    </div><div class="col-md-3">
+                        <div class="form-group">
+                            <label for="employerTipoDueño">Tipo Dueño</label>
+                            @Html.DropDownListFor(m => m.OwnershipId
+                                            , new SelectList(SelectListItemRepo.GetOwnershipTypes()
+                                                     , "id", "Description", Model.OwnershipId)
+                                            , ""
+                                                     , new { @class = "form-control", @disabled = "disabled" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="employerTipoPatrono">Tipo Patrono</label>
+                            @Html.DropDownListFor(m => m.EmployerTypeId
+                                            , new SelectList(SelectListItemRepo.GetEmployerTypes()
+                                            , "id", "Description", Model.EmployerTypeId)
+                                            , ""
+                                                     , new { @class = "form-control" })
+                        </div>
+                    </div>
+                    @Html.HiddenFor(m => m.EmployerTypeId)
+                    @Html.HiddenFor(m => m.EmployerId)
+                </div>
+                @*<div class="row">
+                    <div class="col-md-3">
+                        <label for="employerNominaDTRH">Nómina CFSE</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">$</span>
+                            @Html.TextBoxFor(m => m.PayrollCFSETotalWages, new { @class = "form-control", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="employerNominaDTRH">Nómina DTRH</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">$</span>
+                            @Html.TextBoxFor(m => m.PayrollOtherTotalWages, new { @class = "form-control", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="employerDif">Dif.</label>
+                            @Html.TextBoxFor(m => m.PayrollDifference, new { @class = "form-control", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="employerNoEmp"># Empl.</label>
+                            @Html.TextBoxFor(m => m.EmployerNo, new { @class = "form-control", @readonly = "readonly" })
+                        </div>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+    </div>
+</div>

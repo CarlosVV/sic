@@ -1,0 +1,36 @@
+﻿<div class="row">
+    @* row:1 *@
+    <div class="col-md-2">
+        <div class="form-group">
+            <label class="control-label" for="SSN">@Model.ResourceService.GetResourceString("Demografico.SeguroSocial.label.text")</label>
+            <input class="form-control" id="ssn" name="ssn" type="number" maxlength="9"/>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label class="control-label" for="NumId">@Model.ResourceService.GetResourceString("Demografico.NumeroIdentificacion.label.text")</label>
+            <input class="form-control" id="numId" name="numId" type="text" maxlength="75" />
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <div class="form-group">
+            @* Convertir este control a una lista *@
+            <label class="control-label" for="dob">@Model.ResourceService.GetResourceString("Demografico.FechaDeNacimiento.label.text")</label>
+            <div class="input-group date" data-provide="datepicker">
+                <input type="text" class="form-control" id="dob" name="dob">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <div class="form-group" id="deceasedAgeInfo" hidden>
+            <label class="control-label" for="deceasedAge">@Model.ResourceService.GetResourceString("Demografico.EdadFechaDeMuerte.label.text")</label>
+            <input class="form-control" id="deceasedAge" name="deceasedAge" type="text" readonly />
+        </div>
+    </div>
+</div>

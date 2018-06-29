@@ -1,0 +1,46 @@
+﻿@model Nagnoi.SiC.Web.Models.Demographic.DemographicViewModel
+
+<div class="row" id="row6Beneficiary">
+    @* row:7 *@
+    <div class="col-md-2">
+        <div class="form-group">
+            <label class="control-label" for="isStudying">@Model.ResourceService.GetResourceString("Demografico.Estudia.label.text")</label>
+            <div>
+                <label class="radio-inline">
+                    <input type="radio" name="isStudying" id="studyingTrue" value="true"> Sí
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="isStudying" id="studyingFalse" class="radioFalse" value="false"> No
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div id="studyingInfo" hidden>
+        <div class="col-md-2">
+            <div class="form-group">
+                @* Convertir este control a una lista *@
+                <label class="control-label" for="studyFromDate">@Model.ResourceService.GetResourceString("Demografico.Desde.label.text")</label>
+                <div class="input-group date" data-provide="datepicker">
+                    <input type="text" class="form-control" id="studyFromDate" name="studyFromDate">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
+            <div class="form-group">
+                @* Convertir este control a una lista *@
+                <label class="control-label" for="studyToDate">@Model.ResourceService.GetResourceString("Demografico.Hasta.label.text")</label>
+                <div class="input-group date" data-provide="datepicker">
+                    <input type="text" class="form-control" id="studyToDate" name="studyToDate">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

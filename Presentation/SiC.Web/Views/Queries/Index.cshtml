@@ -1,0 +1,54 @@
+﻿@using Nagnoi.SiC.Web.Models.Query
+@model QueriesViewModel
+
+@section Styles{
+    @Styles.Render("~/content/QueryStylesheets")
+    @Styles.Render("~/bundles/datepicker/css")
+}
+
+<div class="homePage">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header text-danger">
+                <h1>Consultas</h1>
+            </div>
+        </div>
+    </div>
+    @{
+        Html.RenderAction("SearchBox", "Case");
+    }
+    <div id="header-panel" class="row hidden">
+        <div class="col-md-12">
+            <h3>
+                Resumen de Incapacidad
+            </h3>
+            <hr />
+            <div class="panel-group" role="tablist">
+                @Html.Partial("_HeaderCase", Model.CaseModel)
+            </div>
+
+            <div id="IppSummary" class="panel-group" role="tablist">
+                @Html.Partial("_IPPSummary")
+            </div>
+         
+            <div id="ItpSummary" class="panel-group" role="tablist">
+                @Html.Partial("_ITPSummary")
+            </div>
+          
+
+            <div class="panel-group" role="tablist">
+                <b id="TotalIPPITP"></b>
+            </div>
+            
+            <div id="inversionSummary" class="panel-group" role="tablist">
+                @Html.Partial("_InversionSummary")
+            </div>
+            <div id="deathBeneficiary" class="panel-group" role="tablist">
+                @Html.Partial("_BeneficiarySummary")
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/Queries")
+}

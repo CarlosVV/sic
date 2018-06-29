@@ -1,0 +1,30 @@
+﻿@model Nagnoi.SiC.Web.Models.Case.SearchViewModel
+
+<div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Buscar Casos</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel-body">
+                    @Html.Partial("SearchCase/_Form")
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label" for="searchBtnForSelectCase"></label>
+                                <div class="pull-right">
+                                    <button class="btn btn-info" id="searchBtnForSelectCase">Buscar</button>
+                                    <button class="btn btn-default" id="clearBtnForSelectCase">Limpiar</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                @Html.Partial("SearchCase/_ResultTableWithBtns")
+            </div>
+        </div>
+    </div>
+</div>

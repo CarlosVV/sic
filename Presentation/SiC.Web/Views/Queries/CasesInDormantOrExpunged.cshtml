@@ -1,0 +1,27 @@
+﻿@using Nagnoi.SiC.Web.Models.Query
+@model QueriesViewModel
+
+@{
+    ViewBag.Title = "CasesInDormantOrExpunged";
+}
+
+
+<div class="homePage">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header text-danger">
+                <h1>Consultas</h1>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_FindCasesInDormantOrExpunged");
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/CasesInDormantOrExpunged");
+}
+
+@section Styles{
+    @Styles.Render("~/content/QueryStylesheets")
+}

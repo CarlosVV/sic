@@ -1,0 +1,2798 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{333C8A87-2E7A-41B1-BB7E-F6765B972E7B}</ProjectGuid>
+    <ProjectTypeGuids>{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Nagnoi.SiC.Web</RootNamespace>
+    <AssemblyName>Nagnoi.SiC.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DataTables.Mvc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExternalLibs\DataTables.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Elmah.Mvc, Version=2.1.2.1389, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Elmah.Mvc.2.1.2\lib\net40\Elmah.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Threading.Tasks">
+      <HintPath>..\..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions">
+      <HintPath>..\..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop">
+      <HintPath>..\..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.DirectoryServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.DirectoryServices.AccountManagement">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="X.PagedList">
+      <HintPath>..\..\packages\X.PagedList.5.1.0.5000\lib\portable-net45+wp8+win8\X.PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="App_Start\AllowAnonymousAttributeExtension.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\ElmahErrorAttribute.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdjustmentEBTController.cs" />
+    <Compile Include="Controllers\AdjustmentsController.cs" />
+    <Compile Include="Controllers\ApprovalController.cs" />
+    <Compile Include="Controllers\DemographicController.cs" />
+    <Compile Include="Controllers\InterfaceController.cs" />
+    <Compile Include="Controllers\PaymentCertificationController.cs" />
+    <Compile Include="Controllers\PaymentRegistrationController.cs" />
+    <Compile Include="Controllers\QueriesController.cs" />
+    <Compile Include="Controllers\ThirdPartyPaymentController.cs" />
+    <Compile Include="Controllers\TransactionDetailController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\PreExistingController.cs" />
+    <Compile Include="ExternalLibs\HomeController.cs" />
+    <Compile Include="Controllers\PaymentMethodController.cs" />
+    <Compile Include="Controllers\PaymentsController.cs" />
+    <Compile Include="Controllers\CaseController.cs" />
+    <Compile Include="Controllers\ReferenceTablesController.cs" />
+    <Compile Include="DataTables\Binders\SearchDataTablesBinder.cs" />
+    <Compile Include="DataTables\Requests\SearchDataTablesRequest.cs" />
+    <Compile Include="DataTables\Result\BasicDataTablesResult.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Address\AddressViewModel.cs" />
+    <Compile Include="Models\AdjustmentEBT\AdjusmentEbtNotificationEmail.cs" />
+    <Compile Include="Models\AdjustmentEBT\ApproveRequestModel.cs" />
+    <Compile Include="Models\AdjustmentEBT\ApproveViewModel.cs" />
+    <Compile Include="Models\AdjustmentEBT\DocumentRequestModel.cs" />
+    <Compile Include="Models\AdjustmentEBT\DocumentViewModel.cs" />
+    <Compile Include="Models\AdjustmentEBT\IndexViewModel.cs" />
+    <Compile Include="Models\AdjustmentEBT\AdjusmentEbtViewModel.cs" />
+    <Compile Include="Models\AdjustmentEBT\SaveRequestModel.cs" />
+    <Compile Include="Models\AdjustmentEBT\SearchViewModel.cs" />
+    <Compile Include="Models\Adjustments\IndexViewModel.cs" />
+    <Compile Include="Models\Approval\AllowOperationsModel.cs" />
+    <Compile Include="Models\Approval\ApprovalDeathModel.cs" />
+    <Compile Include="Models\Approval\ApprovalInvestmentModel.cs" />
+    <Compile Include="Models\Approval\ApprovalIppModel.cs" />
+    <Compile Include="Models\Approval\ApprovalItpModel.cs" />
+    <Compile Include="Models\Approval\ApprovalPostMortemItpModel.cs" />
+    <Compile Include="Models\Approval\ApprovalLawyerModel.cs" />
+    <Compile Include="Models\Approval\ApprovalPendingDietModel.cs" />
+    <Compile Include="Models\Approval\ApprovalPeremptoryModel.cs" />
+    <Compile Include="Models\Approval\ApprovalThirdPaymentModel.cs" />
+    <Compile Include="Models\Approval\AprobacionViewModel.cs" />
+    <Compile Include="Models\Approval\IndexViewModel.cs" />
+    <Compile Include="Models\Approval\SearchViewModel.cs" />
+    <Compile Include="Models\Beneficiary\BeneficiaryViewModel.cs" />
+    <Compile Include="Models\Case\DataTableParamCase.cs" />
+    <Compile Include="Models\Case\SearchViewModel.cs" />
+    <Compile Include="Models\Case\CaseViewModel.cs" />
+    <Compile Include="Models\Demographic\CaseViewModel.cs" />
+    <Compile Include="Models\Demographic\DemographicViewModel.cs" />
+    <Compile Include="Models\Employer\EmployerViewModel.cs" />
+    <Compile Include="Models\Paging\DataTableColumn.cs" />
+    <Compile Include="Models\Paging\DataTableOrder.cs" />
+    <Compile Include="Models\Paging\DataTableOrderDir.cs" />
+    <Compile Include="Models\Paging\DataTableParam.cs" />
+    <Compile Include="Models\Paging\DataTableResult.cs" />
+    <Compile Include="Models\Paging\DataTableRow.cs" />
+    <Compile Include="Models\Paging\DataTableSearch.cs" />
+    <Compile Include="Models\Paging\PagedList.cs" />
+    <Compile Include="Models\Paging\PagedListExtensions .cs" />
+    <Compile Include="Models\PaymentCertification\CertificationViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\PaymentCertification\SearchViewModel .cs" />
+    <Compile Include="Models\PaymentRegistration\IndexViewModel.cs" />
+    <Compile Include="Models\PaymentRegistration\InvestmentCreateModel.cs" />
+    <Compile Include="Models\PaymentRegistration\IppCreateModel.cs" />
+    <Compile Include="Models\PaymentRegistration\IppDesgloseUpdateModel.cs" />
+    <Compile Include="Models\PaymentRegistration\IppDesgloseCreateModel.cs" />
+    <Compile Include="Models\PaymentRegistration\IppUpdateModel.cs" />
+    <Compile Include="Models\PaymentRegistration\PendingDietCreateModel.cs" />
+    <Compile Include="Models\PaymentRegistration\PeremptoryCreateModel.cs" />
+    <Compile Include="Models\PaymentsViewModels.cs" />
+    <Compile Include="Models\Payment\PaymentTransactionModel.cs" />
+    <Compile Include="Models\Payment\PaymentViewModel.cs" />
+    <Compile Include="Models\Payment\UpdateInvestmentRequest.cs" />
+    <Compile Include="Models\PreExisting\CaseViewModel.cs" />
+    <Compile Include="Models\PreExisting\PreExistingViewModel.cs" />
+    <Compile Include="Models\PreExisting\SearchViewModel .cs" />
+    <Compile Include="Models\Query\QueriesViewModel.cs" />
+    <Compile Include="Models\ReferenceTables\IndexViewModel.cs" />
+    <Compile Include="Models\ThirdPartyPayment\EditViewModel.cs" />
+    <Compile Include="Models\ThirdPartyPayment\ThirdPartyPaymentModel.cs" />
+    <Compile Include="Models\ThirdPartyPayment\IndexViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\CaseWebservice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Readme\Elmah.txt" />
+    <Content Include="Content\bootstrap-datepicker.css" />
+    <Content Include="Content\bootstrap-datepicker.min.css" />
+    <Content Include="Content\bootstrap-datepicker.standalone.css" />
+    <Content Include="Content\bootstrap-datepicker.standalone.min.css" />
+    <Content Include="Content\bootstrap-datepicker3.css" />
+    <Content Include="Content\bootstrap-datepicker3.min.css" />
+    <Content Include="Content\bootstrap-datepicker3.standalone.css" />
+    <Content Include="Content\bootstrap-datepicker3.standalone.min.css" />
+    <Content Include="Content\bootstrap-fileinput\css\fileinput.css" />
+    <Content Include="Content\bootstrap-fileinput\css\fileinput.min.css" />
+    <Content Include="Content\bootstrap-fileinput\img\loading-sm.gif" />
+    <Content Include="Content\bootstrap-fileinput\img\loading.gif" />
+    <Content Include="Content\bootstrap-fileinput\themes\fa\theme.js" />
+    <Content Include="Content\bootstrap-fileinput\themes\gly\theme.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\AutoFill\css\autoFill.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\AutoFill\css\autoFill.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\AutoFill\css\autoFill.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\AutoFill\css\autoFill.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\AutoFill\css\autoFill.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\AutoFill\css\autoFill.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\AutoFill\css\autoFill.foundation.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\AutoFill\css\autoFill.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\AutoFill\css\autoFill.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\AutoFill\css\autoFill.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\AutoFill\css\autoFill.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\AutoFill\css\autoFill.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\buttons.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\buttons.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\buttons.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\buttons.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\buttons.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\buttons.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\buttons.foundation.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\buttons.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\buttons.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\buttons.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\buttons.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\buttons.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\ColReorder\css\colReorder.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\ColReorder\css\colReorder.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\ColReorder\css\colReorder.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\ColReorder\css\colReorder.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\ColReorder\css\colReorder.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\ColReorder\css\colReorder.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\ColReorder\css\colReorder.foundation.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\ColReorder\css\colReorder.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\ColReorder\css\colReorder.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\ColReorder\css\colReorder.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\ColReorder\css\colReorder.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\ColReorder\css\colReorder.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Editor\css\editor.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedColumns\css\fixedColumns.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedColumns\css\fixedColumns.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedColumns\css\fixedColumns.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedColumns\css\fixedColumns.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedColumns\css\fixedColumns.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedColumns\css\fixedColumns.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedColumns\css\fixedColumns.foundation.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedColumns\css\fixedColumns.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedColumns\css\fixedColumns.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedColumns\css\fixedColumns.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedColumns\css\fixedColumns.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedColumns\css\fixedColumns.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedHeader\css\fixedHeader.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedHeader\css\fixedHeader.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedHeader\css\fixedHeader.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedHeader\css\fixedHeader.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedHeader\css\fixedHeader.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedHeader\css\fixedHeader.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedHeader\css\fixedHeader.foundation.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedHeader\css\fixedHeader.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedHeader\css\fixedHeader.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedHeader\css\fixedHeader.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedHeader\css\fixedHeader.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\FixedHeader\css\fixedHeader.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\KeyTable\css\keyTable.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\KeyTable\css\keyTable.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\KeyTable\css\keyTable.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\KeyTable\css\keyTable.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\KeyTable\css\keyTable.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\KeyTable\css\keyTable.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\KeyTable\css\keyTable.foundation.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\KeyTable\css\keyTable.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\KeyTable\css\keyTable.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\KeyTable\css\keyTable.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\KeyTable\css\keyTable.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\KeyTable\css\keyTable.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Responsive\css\responsive.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Responsive\css\responsive.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Responsive\css\responsive.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Responsive\css\responsive.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Responsive\css\responsive.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Responsive\css\responsive.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Responsive\css\responsive.foundation.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Responsive\css\responsive.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Responsive\css\responsive.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Responsive\css\responsive.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Responsive\css\responsive.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Responsive\css\responsive.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\RowReorder\css\rowReorder.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\RowReorder\css\rowReorder.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\RowReorder\css\rowReorder.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\RowReorder\css\rowReorder.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\RowReorder\css\rowReorder.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\RowReorder\css\rowReorder.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\RowReorder\css\rowReorder.foundation.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\RowReorder\css\rowReorder.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\RowReorder\css\rowReorder.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\RowReorder\css\rowReorder.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\RowReorder\css\rowReorder.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\RowReorder\css\rowReorder.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Scroller\css\scroller.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Scroller\css\scroller.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Scroller\css\scroller.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Scroller\css\scroller.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Scroller\css\scroller.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Scroller\css\scroller.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Scroller\css\scroller.foundation.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Scroller\css\scroller.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Scroller\css\scroller.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Scroller\css\scroller.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Scroller\css\scroller.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Scroller\css\scroller.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Select\css\select.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Select\css\select.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Select\css\select.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Select\css\select.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Select\css\select.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Select\css\select.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Select\css\select.foundation.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Select\css\select.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Select\css\select.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Select\css\select.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Select\css\select.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Select\css\select.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\media\css\dataTables.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.12\media\css\dataTables.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.12\media\css\dataTables.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.12\media\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.12\media\css\dataTables.foundation.css" />
+    <Content Include="Content\DataTables-1.10.12\media\css\dataTables.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.12\media\css\dataTables.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.12\media\css\dataTables.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\media\css\dataTables.material.css" />
+    <Content Include="Content\DataTables-1.10.12\media\css\dataTables.material.min.css" />
+    <Content Include="Content\DataTables-1.10.12\media\css\dataTables.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.12\media\css\dataTables.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.12\media\css\dataTables.uikit.css" />
+    <Content Include="Content\DataTables-1.10.12\media\css\dataTables.uikit.min.css" />
+    <Content Include="Content\DataTables-1.10.12\media\css\jquery.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.12\media\css\jquery.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.12\media\css\jquery.dataTables_themeroller.css" />
+    <Content Include="Content\DataTables-1.10.12\media\images\favicon.ico" />
+    <Content Include="Content\DataTables-1.10.12\media\images\sort_asc.png" />
+    <Content Include="Content\DataTables-1.10.12\media\images\sort_asc_disabled.png" />
+    <Content Include="Content\DataTables-1.10.12\media\images\sort_both.png" />
+    <Content Include="Content\DataTables-1.10.12\media\images\sort_desc.png" />
+    <Content Include="Content\DataTables-1.10.12\media\images\sort_desc_disabled.png" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Images\CFSELogo.jpg" />
+    <Content Include="Content\Images\CFSELogoLong.jpg" />
+    <Content Include="Content\Images\details_close.png" />
+    <Content Include="Content\Images\details_open.png" />
+    <Content Include="Content\Images\LOGO SAIP 16X16.png" />
+    <Content Include="Content\Images\LOGO SAIP 32X32.png" />
+    <Content Include="Content\Images\logo.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\noisy-texture.png" />
+    <Content Include="Content\Images\saip_logo.ico" />
+    <Content Include="Content\Images\SIC 16x16.png" />
+    <Content Include="Content\Images\SIC.png" />
+    <Content Include="Content\Images\wait_progress.gif" />
+    <Content Include="Content\jquery.bootgrid.css" />
+    <Content Include="Content\jquery.bootgrid.min.css" />
+    <Content Include="Content\QueryStylesheet.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
+    <Content Include="ExternalLibs\DataTables.Mvc.dll" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\site.css" />
+    <Content Include="Scripts\additional-methods.js" />
+    <Content Include="Scripts\additional-methods.min.js" />
+    <Content Include="Scripts\autoNumeric-min.js" />
+    <Content Include="Scripts\bootbox.js" />
+    <Content Include="Scripts\bootbox.min.js" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap-datepicker.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\cldr.js" />
+    <Content Include="Scripts\cldr\event.js" />
+    <Content Include="Scripts\cldr\supplemental.js" />
+    <Content Include="Scripts\cldr\unresolved.js" />
+    <Content Include="Scripts\cldr\main\af-NA\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\af\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\am\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-AE\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-BH\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-DJ\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-DZ\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-EG\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-EH\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-ER\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-IL\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-IQ\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-JO\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-KM\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-KW\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-LB\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-LY\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-MA\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-MR\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-OM\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-PS\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-QA\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-SA\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-SD\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-SO\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-SS\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-SY\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-TD\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-TN\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar-YE\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ar\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\az-Latn\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\az\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\be\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\bg\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\bn-IN\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\bn\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\bs-Latn\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\bs\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ca-AD\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ca-ES-VALENCIA\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ca-FR\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ca-IT\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ca\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\cs\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\cy\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\da-GL\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\da\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\de-AT\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\de-BE\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\de-CH\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\de-LI\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\de-LU\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\de\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\el-CY\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\el\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-001\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-001\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-001\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-150\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-150\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-150\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-AG\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-AG\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-AG\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-AI\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-AI\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-AI\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-AS\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-AS\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-AS\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-AT\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-AT\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-AT\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-AU\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-AU\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-AU\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-BB\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-BB\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-BB\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-BE\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-BE\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-BE\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-BI\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-BI\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-BI\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-BM\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-BM\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-BM\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-BS\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-BS\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-BS\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-BW\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-BW\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-BW\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-BZ\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-BZ\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-BZ\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-CA\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-CA\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-CA\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-CC\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-CC\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-CC\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-CH\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-CH\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-CH\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-CK\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-CK\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-CK\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-CM\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-CM\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-CM\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-CX\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-CX\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-CX\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-CY\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-CY\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-CY\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-DE\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-DE\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-DE\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-DG\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-DG\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-DG\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-DK\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-DK\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-DK\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-DM\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-DM\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-DM\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-ER\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-ER\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-ER\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-FI\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-FI\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-FI\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-FJ\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-FJ\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-FJ\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-FK\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-FK\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-FK\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-FM\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-FM\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-FM\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-GB\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-GB\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-GB\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-GD\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-GD\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-GD\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-GG\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-GG\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-GG\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-GH\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-GH\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-GH\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-GI\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-GI\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-GI\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-GM\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-GM\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-GM\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-GU\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-GU\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-GU\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-GY\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-GY\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-GY\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-HK\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-HK\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-HK\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-IE\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-IE\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-IE\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-IL\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-IL\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-IL\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-IM\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-IM\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-IM\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-IN\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-IN\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-IN\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-IO\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-IO\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-IO\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-JE\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-JE\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-JE\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-JM\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-JM\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-JM\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-KE\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-KE\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-KE\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-KI\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-KI\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-KI\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-KN\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-KN\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-KN\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-KY\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-KY\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-KY\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-LC\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-LC\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-LC\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-LR\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-LR\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-LR\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-LS\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-LS\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-LS\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-MG\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-MG\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-MG\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-MH\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-MH\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-MH\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-MO\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-MO\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-MO\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-MP\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-MP\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-MP\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-MS\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-MS\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-MS\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-MT\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-MT\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-MT\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-MU\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-MU\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-MU\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-MW\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-MW\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-MW\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-MY\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-MY\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-MY\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-NA\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-NA\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-NA\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-NF\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-NF\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-NF\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-NG\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-NG\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-NG\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-NL\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-NL\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-NL\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-NR\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-NR\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-NR\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-NU\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-NU\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-NU\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-NZ\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-NZ\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-NZ\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-PG\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-PG\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-PG\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-PH\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-PH\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-PH\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-PK\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-PK\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-PK\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-PN\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-PN\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-PN\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-PR\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-PR\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-PR\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-PW\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-PW\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-PW\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-RW\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-RW\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-RW\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-SB\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-SB\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-SB\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-SC\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-SC\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-SC\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-SD\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-SD\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-SD\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-SE\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-SE\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-SE\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-SG\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-SG\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-SG\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-SH\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-SH\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-SH\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-SI\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-SI\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-SI\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-SL\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-SL\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-SL\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-SS\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-SS\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-SS\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-SX\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-SX\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-SX\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-SZ\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-SZ\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-SZ\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-TC\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-TC\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-TC\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-TK\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-TK\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-TK\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-TO\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-TO\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-TO\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-TT\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-TT\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-TT\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-TV\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-TV\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-TV\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-TZ\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-TZ\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-TZ\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-UG\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-UG\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-UG\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-UM\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-UM\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-UM\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-US-POSIX\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-US-POSIX\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-US-POSIX\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-VC\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-VC\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-VC\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-VG\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-VG\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-VG\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-VI\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-VI\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-VI\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-VU\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-VU\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-VU\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-WS\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-WS\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-WS\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-ZA\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-ZA\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-ZA\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-ZM\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-ZM\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-ZM\numbers.json" />
+    <Content Include="Scripts\cldr\main\en-ZW\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en-ZW\currencies.json" />
+    <Content Include="Scripts\cldr\main\en-ZW\numbers.json" />
+    <Content Include="Scripts\cldr\main\en\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\en\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\en\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\en\currencies.json" />
+    <Content Include="Scripts\cldr\main\en\dateFields.json" />
+    <Content Include="Scripts\cldr\main\en\numbers.json" />
+    <Content Include="Scripts\cldr\main\en\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\es-419\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\es-419\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\es-419\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\es-419\currencies.json" />
+    <Content Include="Scripts\cldr\main\es-419\dateFields.json" />
+    <Content Include="Scripts\cldr\main\es-419\numbers.json" />
+    <Content Include="Scripts\cldr\main\es-419\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\es-AR\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\es-AR\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\es-AR\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\es-AR\currencies.json" />
+    <Content Include="Scripts\cldr\main\es-AR\dateFields.json" />
+    <Content Include="Scripts\cldr\main\es-AR\numbers.json" />
+    <Content Include="Scripts\cldr\main\es-AR\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\es-BO\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\es-BO\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\es-BO\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\es-BO\currencies.json" />
+    <Content Include="Scripts\cldr\main\es-BO\dateFields.json" />
+    <Content Include="Scripts\cldr\main\es-BO\numbers.json" />
+    <Content Include="Scripts\cldr\main\es-BO\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\es-CL\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\es-CL\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\es-CL\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\es-CL\currencies.json" />
+    <Content Include="Scripts\cldr\main\es-CL\dateFields.json" />
+    <Content Include="Scripts\cldr\main\es-CL\numbers.json" />
+    <Content Include="Scripts\cldr\main\es-CL\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\es-CO\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\es-CO\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\es-CO\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\es-CO\currencies.json" />
+    <Content Include="Scripts\cldr\main\es-CO\dateFields.json" />
+    <Content Include="Scripts\cldr\main\es-CO\numbers.json" />
+    <Content Include="Scripts\cldr\main\es-CO\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\es-CR\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\es-CR\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\es-CR\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\es-CR\currencies.json" />
+    <Content Include="Scripts\cldr\main\es-CR\dateFields.json" />
+    <Content Include="Scripts\cldr\main\es-CR\numbers.json" />
+    <Content Include="Scripts\cldr\main\es-CR\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\es-CU\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\es-CU\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\es-CU\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\es-CU\currencies.json" />
+    <Content Include="Scripts\cldr\main\es-CU\dateFields.json" />
+    <Content Include="Scripts\cldr\main\es-CU\numbers.json" />
+    <Content Include="Scripts\cldr\main\es-CU\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\es-DO\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\es-DO\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\es-DO\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\es-DO\currencies.json" />
+    <Content Include="Scripts\cldr\main\es-DO\dateFields.json" />
+    <Content Include="Scripts\cldr\main\es-DO\numbers.json" />
+    <Content Include="Scripts\cldr\main\es-DO\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\es-EA\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\es-EA\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\es-EA\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\es-EA\currencies.json" />
+    <Content Include="Scripts\cldr\main\es-EA\dateFields.json" />
+    <Content Include="Scripts\cldr\main\es-EA\numbers.json" />
+    <Content Include="Scripts\cldr\main\es-EA\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\es-EC\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\es-EC\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\es-EC\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\es-EC\currencies.json" />
+    <Content Include="Scripts\cldr\main\es-EC\dateFields.json" />
+    <Content Include="Scripts\cldr\main\es-EC\numbers.json" />
+    <Content Include="Scripts\cldr\main\es-EC\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\es-GQ\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\es-GQ\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\es-GQ\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\es-GQ\currencies.json" />
+    <Content Include="Scripts\cldr\main\es-GQ\dateFields.json" />
+    <Content Include="Scripts\cldr\main\es-GQ\numbers.json" />
+    <Content Include="Scripts\cldr\main\es-GQ\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\es-GT\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\es-GT\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\es-GT\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\es-GT\currencies.json" />
+    <Content Include="Scripts\cldr\main\es-GT\dateFields.json" />
+    <Content Include="Scripts\cldr\main\es-GT\numbers.json" />
+    <Content Include="Scripts\cldr\main\es-GT\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\es-HN\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\es-HN\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\es-HN\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\es-HN\currencies.json" />
+    <Content Include="Scripts\cldr\main\es-HN\dateFields.json" />
+    <Content Include="Scripts\cldr\main\es-HN\numbers.json" />
+    <Content Include="Scripts\cldr\main\es-HN\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\es-IC\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\es-IC\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\es-IC\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\es-IC\currencies.json" />
+    <Content Include="Scripts\cldr\main\es-IC\dateFields.json" />
+    <Content Include="Scripts\cldr\main\es-IC\numbers.json" />
+    <Content Include="Scripts\cldr\main\es-IC\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\es-MX\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\es-MX\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\es-MX\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\es-MX\currencies.json" />
+    <Content Include="Scripts\cldr\main\es-MX\dateFields.json" />
+    <Content Include="Scripts\cldr\main\es-MX\numbers.json" />
+    <Content Include="Scripts\cldr\main\es-MX\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\es-NI\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\es-NI\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\es-NI\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\es-NI\currencies.json" />
+    <Content Include="Scripts\cldr\main\es-NI\dateFields.json" />
+    <Content Include="Scripts\cldr\main\es-NI\numbers.json" />
+    <Content Include="Scripts\cldr\main\es-NI\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\es-PA\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\es-PA\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\es-PA\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\es-PA\currencies.json" />
+    <Content Include="Scripts\cldr\main\es-PA\dateFields.json" />
+    <Content Include="Scripts\cldr\main\es-PA\numbers.json" />
+    <Content Include="Scripts\cldr\main\es-PA\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\es-PE\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\es-PE\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\es-PE\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\es-PE\currencies.json" />
+    <Content Include="Scripts\cldr\main\es-PE\dateFields.json" />
+    <Content Include="Scripts\cldr\main\es-PE\numbers.json" />
+    <Content Include="Scripts\cldr\main\es-PE\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\es-PH\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\es-PH\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\es-PH\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\es-PH\currencies.json" />
+    <Content Include="Scripts\cldr\main\es-PH\dateFields.json" />
+    <Content Include="Scripts\cldr\main\es-PH\numbers.json" />
+    <Content Include="Scripts\cldr\main\es-PH\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\es-PR\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\es-PR\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\es-PR\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\es-PR\currencies.json" />
+    <Content Include="Scripts\cldr\main\es-PR\dateFields.json" />
+    <Content Include="Scripts\cldr\main\es-PR\numbers.json" />
+    <Content Include="Scripts\cldr\main\es-PR\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\es-PY\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\es-PY\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\es-PY\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\es-PY\currencies.json" />
+    <Content Include="Scripts\cldr\main\es-PY\dateFields.json" />
+    <Content Include="Scripts\cldr\main\es-PY\numbers.json" />
+    <Content Include="Scripts\cldr\main\es-PY\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\es-SV\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\es-SV\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\es-SV\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\es-SV\currencies.json" />
+    <Content Include="Scripts\cldr\main\es-SV\dateFields.json" />
+    <Content Include="Scripts\cldr\main\es-SV\numbers.json" />
+    <Content Include="Scripts\cldr\main\es-SV\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\es-US\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\es-US\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\es-US\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\es-US\currencies.json" />
+    <Content Include="Scripts\cldr\main\es-US\dateFields.json" />
+    <Content Include="Scripts\cldr\main\es-US\numbers.json" />
+    <Content Include="Scripts\cldr\main\es-US\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\es-UY\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\es-UY\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\es-UY\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\es-UY\currencies.json" />
+    <Content Include="Scripts\cldr\main\es-UY\dateFields.json" />
+    <Content Include="Scripts\cldr\main\es-UY\numbers.json" />
+    <Content Include="Scripts\cldr\main\es-UY\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\es-VE\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\es-VE\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\es-VE\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\es-VE\currencies.json" />
+    <Content Include="Scripts\cldr\main\es-VE\dateFields.json" />
+    <Content Include="Scripts\cldr\main\es-VE\numbers.json" />
+    <Content Include="Scripts\cldr\main\es-VE\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\es\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\es\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\es\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\es\currencies.json" />
+    <Content Include="Scripts\cldr\main\es\dateFields.json" />
+    <Content Include="Scripts\cldr\main\es\numbers.json" />
+    <Content Include="Scripts\cldr\main\es\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\et\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\eu\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fa-AF\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fa\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fil\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fi\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fo-DK\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fo\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-BE\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-BF\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-BI\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-BJ\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-BL\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-CA\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-CD\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-CF\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-CG\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-CH\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-CI\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-CM\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-DJ\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-DZ\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-GA\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-GF\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-GN\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-GP\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-GQ\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-HT\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-KM\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-LU\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-MA\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-MC\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-MF\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-MG\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-ML\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-MQ\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-MR\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-MU\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-NC\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-NE\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-PF\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-PM\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-RE\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-RW\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-SC\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-SN\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-SY\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-TD\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-TG\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-TN\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-VU\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-WF\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr-YT\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\fr\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ga\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\gl\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\gu\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\he\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\hi\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\hr-BA\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\hr\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\hu\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\hy\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\id\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\is\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\it-CH\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\it-SM\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\it\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ja\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ka\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\kk\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\km\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\kn\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ko-KP\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ko\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ky\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\lo\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\lt\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\lv\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\mk\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ml\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\mn\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\mr\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ms-BN\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ms-SG\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ms\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\my\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\nb-SJ\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\nb\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ne-IN\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ne\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\nl-AW\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\nl-BE\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\nl-BQ\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\nl-CW\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\nl-SR\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\nl-SX\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\nl\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\pa-Guru\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\pa\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\pl\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\pt-AO\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\pt-AO\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\pt-AO\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\pt-AO\currencies.json" />
+    <Content Include="Scripts\cldr\main\pt-AO\dateFields.json" />
+    <Content Include="Scripts\cldr\main\pt-AO\numbers.json" />
+    <Content Include="Scripts\cldr\main\pt-AO\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\pt-CV\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\pt-CV\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\pt-CV\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\pt-CV\currencies.json" />
+    <Content Include="Scripts\cldr\main\pt-CV\dateFields.json" />
+    <Content Include="Scripts\cldr\main\pt-CV\numbers.json" />
+    <Content Include="Scripts\cldr\main\pt-CV\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\pt-GW\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\pt-GW\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\pt-GW\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\pt-GW\currencies.json" />
+    <Content Include="Scripts\cldr\main\pt-GW\dateFields.json" />
+    <Content Include="Scripts\cldr\main\pt-GW\numbers.json" />
+    <Content Include="Scripts\cldr\main\pt-GW\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\pt-MO\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\pt-MO\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\pt-MO\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\pt-MO\currencies.json" />
+    <Content Include="Scripts\cldr\main\pt-MO\dateFields.json" />
+    <Content Include="Scripts\cldr\main\pt-MO\numbers.json" />
+    <Content Include="Scripts\cldr\main\pt-MO\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\pt-MZ\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\pt-MZ\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\pt-MZ\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\pt-MZ\currencies.json" />
+    <Content Include="Scripts\cldr\main\pt-MZ\dateFields.json" />
+    <Content Include="Scripts\cldr\main\pt-MZ\numbers.json" />
+    <Content Include="Scripts\cldr\main\pt-MZ\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\pt-PT\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\pt-PT\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\pt-PT\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\pt-PT\currencies.json" />
+    <Content Include="Scripts\cldr\main\pt-PT\dateFields.json" />
+    <Content Include="Scripts\cldr\main\pt-PT\numbers.json" />
+    <Content Include="Scripts\cldr\main\pt-PT\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\pt-ST\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\pt-ST\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\pt-ST\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\pt-ST\currencies.json" />
+    <Content Include="Scripts\cldr\main\pt-ST\dateFields.json" />
+    <Content Include="Scripts\cldr\main\pt-ST\numbers.json" />
+    <Content Include="Scripts\cldr\main\pt-ST\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\pt-TL\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\pt-TL\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\pt-TL\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\pt-TL\currencies.json" />
+    <Content Include="Scripts\cldr\main\pt-TL\dateFields.json" />
+    <Content Include="Scripts\cldr\main\pt-TL\numbers.json" />
+    <Content Include="Scripts\cldr\main\pt-TL\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\pt\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\pt\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\pt\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\pt\currencies.json" />
+    <Content Include="Scripts\cldr\main\pt\dateFields.json" />
+    <Content Include="Scripts\cldr\main\pt\numbers.json" />
+    <Content Include="Scripts\cldr\main\pt\timeZoneNames.json" />
+    <Content Include="Scripts\cldr\main\ro-MD\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\root\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ro\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ru-BY\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ru-KG\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ru-KZ\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ru-MD\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ru-UA\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ru\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\si\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\sk\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\sl\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\sq-MK\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\sq-XK\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\sq\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\sr-Cyrl-BA\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\sr-Cyrl-ME\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\sr-Cyrl-XK\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\sr-Cyrl\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\sr-Latn-BA\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\sr-Latn-ME\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\sr-Latn-XK\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\sr-Latn\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\sr\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\sv-AX\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\sv-FI\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\sv\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\sw-CD\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\sw-KE\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\sw-UG\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\sw\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ta-LK\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ta-MY\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ta-SG\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ta\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\te\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\th\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\to\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\tr-CY\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\tr\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\uk\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ur-IN\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\ur\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\uz-Latn\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\uz\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\vi\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\zh-Hans-HK\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\zh-Hans-MO\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\zh-Hans-SG\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\zh-Hans\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\zh-Hant-HK\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\zh-Hant-MO\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\zh-Hant\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\zh\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\main\zu\ca-buddhist.json" />
+    <Content Include="Scripts\cldr\supplemental\aliases.json" />
+    <Content Include="Scripts\cldr\supplemental\calendarData.json" />
+    <Content Include="Scripts\cldr\supplemental\calendarPreferenceData.json" />
+    <Content Include="Scripts\cldr\supplemental\characterFallbacks.json" />
+    <Content Include="Scripts\cldr\supplemental\codeMappings.json" />
+    <Content Include="Scripts\cldr\supplemental\currencyData.json" />
+    <Content Include="Scripts\cldr\supplemental\gender.json" />
+    <Content Include="Scripts\cldr\supplemental\languageData.json" />
+    <Content Include="Scripts\cldr\supplemental\languageMatching.json" />
+    <Content Include="Scripts\cldr\supplemental\likelySubtags.json" />
+    <Content Include="Scripts\cldr\supplemental\measurementData.json" />
+    <Content Include="Scripts\cldr\supplemental\metaZones.json" />
+    <Content Include="Scripts\cldr\supplemental\numberingSystems.json" />
+    <Content Include="Scripts\cldr\supplemental\ordinals.json" />
+    <Content Include="Scripts\cldr\supplemental\parentLocales.json" />
+    <Content Include="Scripts\cldr\supplemental\plurals.json" />
+    <Content Include="Scripts\cldr\supplemental\primaryZones.json" />
+    <Content Include="Scripts\cldr\supplemental\references.json" />
+    <Content Include="Scripts\cldr\supplemental\telephoneCodeData.json" />
+    <Content Include="Scripts\cldr\supplemental\territoryContainment.json" />
+    <Content Include="Scripts\cldr\supplemental\territoryInfo.json" />
+    <Content Include="Scripts\cldr\supplemental\timeData.json" />
+    <Content Include="Scripts\cldr\supplemental\weekData.json" />
+    <Content Include="Scripts\cldr\supplemental\windowsZones.json" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\AutoFill\js\autoFill.bootstrap.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\AutoFill\js\autoFill.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\AutoFill\js\autoFill.bootstrap4.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\AutoFill\js\autoFill.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\AutoFill\js\autoFill.foundation.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\AutoFill\js\autoFill.foundation.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\AutoFill\js\autoFill.jqueryui.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\AutoFill\js\autoFill.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\AutoFill\js\autoFill.semanticui.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\AutoFill\js\autoFill.semanticui.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\AutoFill\js\dataTables.autoFill.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\AutoFill\js\dataTables.autoFill.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.bootstrap.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.bootstrap4.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.colVis.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.colVis.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.flash.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.flash.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.foundation.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.foundation.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.html5.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.html5.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.jqueryui.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.print.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.print.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.semanticui.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\buttons.semanticui.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\dataTables.buttons.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\js\dataTables.buttons.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\swf\flashExport.swf" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\ColReorder\js\dataTables.colReorder.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\ColReorder\js\dataTables.colReorder.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Editor\js\dataTables.editor.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\FixedColumns\js\dataTables.fixedColumns.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\FixedColumns\js\dataTables.fixedColumns.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\FixedHeader\js\dataTables.fixedHeader.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\FixedHeader\js\dataTables.fixedHeader.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\KeyTable\js\dataTables.keyTable.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\KeyTable\js\dataTables.keyTable.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Responsive\js\dataTables.responsive.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Responsive\js\dataTables.responsive.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Responsive\js\responsive.bootstrap.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Responsive\js\responsive.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Responsive\js\responsive.bootstrap4.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Responsive\js\responsive.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Responsive\js\responsive.foundation.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Responsive\js\responsive.foundation.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Responsive\js\responsive.jqueryui.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Responsive\js\responsive.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Responsive\js\responsive.semanticui.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Responsive\js\responsive.semanticui.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\RowReorder\js\dataTables.rowReorder.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\RowReorder\js\dataTables.rowReorder.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Scroller\js\dataTables.scroller.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Scroller\js\dataTables.scroller.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Select\js\dataTables.select.js" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Select\js\dataTables.select.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\media\js\dataTables.bootstrap.js" />
+    <Content Include="Scripts\DataTables-1.10.12\media\js\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\media\js\dataTables.bootstrap4.js" />
+    <Content Include="Scripts\DataTables-1.10.12\media\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\media\js\dataTables.foundation.js" />
+    <Content Include="Scripts\DataTables-1.10.12\media\js\dataTables.foundation.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\media\js\dataTables.jqueryui.js" />
+    <Content Include="Scripts\DataTables-1.10.12\media\js\dataTables.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\media\js\dataTables.material.js" />
+    <Content Include="Scripts\DataTables-1.10.12\media\js\dataTables.material.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\media\js\dataTables.semanticui.js" />
+    <Content Include="Scripts\DataTables-1.10.12\media\js\dataTables.semanticui.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\media\js\dataTables.uikit.js" />
+    <Content Include="Scripts\DataTables-1.10.12\media\js\dataTables.uikit.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\media\js\jquery.dataTables.js" />
+    <Content Include="Scripts\DataTables-1.10.12\media\js\jquery.dataTables.min.js" />
+    <Content Include="Scripts\DataTables-1.10.12\media\js\jquery.js" />
+    <Content Include="Scripts\fileinput.js" />
+    <Content Include="Scripts\fileinput.min.js" />
+    <Content Include="Scripts\globalize.js" />
+    <Content Include="Scripts\globalize\currency.js" />
+    <Content Include="Scripts\globalize\date.js" />
+    <Content Include="Scripts\globalize\message.js" />
+    <Content Include="Scripts\globalize\number.js" />
+    <Content Include="Scripts\globalize\plural.js" />
+    <Content Include="Scripts\globalize\relative-time.js" />
+    <Content Include="Scripts\globalize\unit.js" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Select\Readme.md" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Scroller\Readme.md" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\RowReorder\Readme.md" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Responsive\Readme.md" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\KeyTable\Readme.md" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\FixedHeader\Readme.md" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\FixedColumns\Readme.md" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\ColReorder\Readme.md" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\Buttons\Readme.md" />
+    <Content Include="Scripts\DataTables-1.10.12\extensions\AutoFill\Readme.md" />
+    <Content Include="Content\DataTables-1.10.12\media\images\Sorting icons.psd" />
+    <Content Include="Content\DataTables-1.10.12\extensions\RowReorder\css\semanticui.scss" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\mixins.scss" />
+    <Content Include="Content\DataTables-1.10.12\extensions\Buttons\css\common.scss" />
+    <Content Include="Config\Development\AppSettings.config" />
+    <Content Include="Config\Development\Log4Net.config" />
+    <Content Include="Config\Development\ConnectionStrings.config" />
+    <Content Include="Config\Development\HealthMonitoring.config" />
+    <Content Include="Config\Development\CustomErrors.config" />
+    <Content Include="Config\Production\AppSettings.config" />
+    <Content Include="Config\Production\ConnectionStrings.config" />
+    <Content Include="Config\Production\CustomErrors.config" />
+    <Content Include="Config\Production\HealthMonitoring.config" />
+    <Content Include="Config\Production\Log4Net.config" />
+    <Content Include="Config\Staging\AppSettings.config" />
+    <Content Include="Config\Staging\ConnectionStrings.config" />
+    <Content Include="Config\Staging\CustomErrors.config" />
+    <Content Include="Config\Staging\HealthMonitoring.config" />
+    <Content Include="Config\Staging\Log4Net.config" />
+    <Content Include="Config\Development\Elmah.ErrorFilter.config" />
+    <Content Include="Config\Development\Elmah.ErrorLog.config" />
+    <Content Include="Config\Development\Elmah.Security.config" />
+    <Content Include="Config\Production\Elmah.ErrorLog.config" />
+    <Content Include="Config\Production\Elmah.ErrorFilter.config" />
+    <Content Include="Config\Production\Elmah.Security.config" />
+    <Content Include="Config\Staging\Elmah.ErrorLog.config" />
+    <Content Include="Config\Staging\Elmah.ErrorFilter.config" />
+    <Content Include="Config\Staging\Elmah.Security.config" />
+    <Content Include="Config\Development\Diagnostics.config" />
+    <Content Include="Config\Production\Diagnostics.config" />
+    <Content Include="Config\Staging\Diagnostics.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-fileinput\sass\fileinput.scss" />
+    <Content Include="Content\bootstrap-datepicker3.standalone.min.css.map" />
+    <Content Include="Content\bootstrap-datepicker3.standalone.css.map" />
+    <Content Include="Content\bootstrap-datepicker3.min.css.map" />
+    <Content Include="Content\bootstrap-datepicker3.css.map" />
+    <Content Include="Content\bootstrap-datepicker.standalone.min.css.map" />
+    <Content Include="Content\bootstrap-datepicker.standalone.css.map" />
+    <Content Include="Content\bootstrap-datepicker.min.css.map" />
+    <Content Include="Content\bootstrap-datepicker.css.map" />
+    <None Include="Scripts\jquery-1.12.3.intellisense.js" />
+    <Content Include="Scripts\jquery-1.12.3.js" />
+    <Content Include="Scripts\jquery-1.12.3.min.js" />
+    <Content Include="Scripts\jquery-1.12.3.min.map" />
+    <Content Include="Scripts\jquery.blockUI.js" />
+    <Content Include="Scripts\jquery.bootgrid.fa.js" />
+    <Content Include="Scripts\jquery.bootgrid.fa.min.js" />
+    <Content Include="Scripts\jquery.bootgrid.js" />
+    <Content Include="Scripts\jquery.bootgrid.min.js" />
+    <Content Include="Scripts\jquery.inputmask\inputmask.date.extensions.js" />
+    <Content Include="Scripts\jquery.inputmask\inputmask.extensions.js" />
+    <Content Include="Scripts\jquery.inputmask\inputmask.js" />
+    <Content Include="Scripts\jquery.inputmask\inputmask.numeric.extensions.js" />
+    <Content Include="Scripts\jquery.inputmask\inputmask.phone.extensions.js" />
+    <Content Include="Scripts\jquery.inputmask\inputmask.regex.extensions.js" />
+    <Content Include="Scripts\jquery.inputmask\jquery.inputmask.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.globalize.js" />
+    <Content Include="Scripts\jquery.validate.globalize.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\locales\ar.js" />
+    <Content Include="Scripts\locales\bg.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ar.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.az.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.bg.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.bs.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ca.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.cs.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.cy.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.da.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.de.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.el.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-AU.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-GB.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.eo.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.es.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.et.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.eu.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fa.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fi.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fo.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fr-CH.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.gl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.he.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hu.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hy.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.id.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.is.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.it-CH.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.it.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ja.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ka.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kh.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ko.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.lt.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.lv.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.me.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.mk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.mn.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ms.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nb.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nl-BE.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.no.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pt-BR.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pt.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ro.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.rs-latin.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.rs.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ru.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sq.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sr-latin.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sv.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sw.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.th.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.tr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.uk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.vi.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.zh-CN.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.zh-TW.min.js" />
+    <Content Include="Scripts\locales\ca.js" />
+    <Content Include="Scripts\locales\cr.js" />
+    <Content Include="Scripts\locales\cz.js" />
+    <Content Include="Scripts\locales\da.js" />
+    <Content Include="Scripts\locales\de.js" />
+    <Content Include="Scripts\locales\el.js" />
+    <Content Include="Scripts\locales\es.js" />
+    <Content Include="Scripts\locales\fa.js" />
+    <Content Include="Scripts\locales\fi.js" />
+    <Content Include="Scripts\locales\fr.js" />
+    <Content Include="Scripts\locales\hu.js" />
+    <Content Include="Scripts\locales\id.js" />
+    <Content Include="Scripts\locales\it.js" />
+    <Content Include="Scripts\locales\ja.js" />
+    <Content Include="Scripts\locales\LANG.js" />
+    <Content Include="Scripts\locales\nl.js" />
+    <Content Include="Scripts\locales\pl.js" />
+    <Content Include="Scripts\locales\pt-BR.js" />
+    <Content Include="Scripts\locales\pt.js" />
+    <Content Include="Scripts\locales\ro.js" />
+    <Content Include="Scripts\locales\ru.js" />
+    <Content Include="Scripts\locales\sk.js" />
+    <Content Include="Scripts\locales\th.js" />
+    <Content Include="Scripts\locales\tr.js" />
+    <Content Include="Scripts\locales\uk.js" />
+    <Content Include="Scripts\locales\zh-TW.js" />
+    <Content Include="Scripts\locales\zh.js" />
+    <Content Include="Scripts\localization\messages_ar.js" />
+    <Content Include="Scripts\localization\messages_bg.js" />
+    <Content Include="Scripts\localization\messages_ca.js" />
+    <Content Include="Scripts\localization\messages_cs.js" />
+    <Content Include="Scripts\localization\messages_da.js" />
+    <Content Include="Scripts\localization\messages_de.js" />
+    <Content Include="Scripts\localization\messages_el.js" />
+    <Content Include="Scripts\localization\messages_es.js" />
+    <Content Include="Scripts\localization\messages_et.js" />
+    <Content Include="Scripts\localization\messages_eu.js" />
+    <Content Include="Scripts\localization\messages_fa.js" />
+    <Content Include="Scripts\localization\messages_fi.js" />
+    <Content Include="Scripts\localization\messages_fr.js" />
+    <Content Include="Scripts\localization\messages_he.js" />
+    <Content Include="Scripts\localization\messages_hr.js" />
+    <Content Include="Scripts\localization\messages_hu.js" />
+    <Content Include="Scripts\localization\messages_it.js" />
+    <Content Include="Scripts\localization\messages_ja.js" />
+    <Content Include="Scripts\localization\messages_ka.js" />
+    <Content Include="Scripts\localization\messages_kk.js" />
+    <Content Include="Scripts\localization\messages_lt.js" />
+    <Content Include="Scripts\localization\messages_lv.js" />
+    <Content Include="Scripts\localization\messages_my.js" />
+    <Content Include="Scripts\localization\messages_nl.js" />
+    <Content Include="Scripts\localization\messages_no.js" />
+    <Content Include="Scripts\localization\messages_pl.js" />
+    <Content Include="Scripts\localization\messages_pt_BR.js" />
+    <Content Include="Scripts\localization\messages_pt_PT.js" />
+    <Content Include="Scripts\localization\messages_ro.js" />
+    <Content Include="Scripts\localization\messages_ru.js" />
+    <Content Include="Scripts\localization\messages_si.js" />
+    <Content Include="Scripts\localization\messages_sk.js" />
+    <Content Include="Scripts\localization\messages_sl.js" />
+    <Content Include="Scripts\localization\messages_sr.js" />
+    <Content Include="Scripts\localization\messages_sv.js" />
+    <Content Include="Scripts\localization\messages_th.js" />
+    <Content Include="Scripts\localization\messages_tr.js" />
+    <Content Include="Scripts\localization\messages_uk.js" />
+    <Content Include="Scripts\localization\messages_vi.js" />
+    <Content Include="Scripts\localization\messages_zh.js" />
+    <Content Include="Scripts\localization\messages_zh_TW.js" />
+    <Content Include="Scripts\localization\methods_de.js" />
+    <Content Include="Scripts\localization\methods_nl.js" />
+    <Content Include="Scripts\localization\methods_pt.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\modules\adjustmentebt.approve.js" />
+    <Content Include="Scripts\modules\adjustmentebt.document.js" />
+    <Content Include="Scripts\modules\adjustmentebt.index.js" />
+    <Content Include="Scripts\modules\adjustments.index.js" />
+    <Content Include="Scripts\modules\case.search.js" />
+    <Content Include="Scripts\modules\payment.registration.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\PartialViews\CasesInDormantOrExpunged.js" />
+    <Content Include="Scripts\PartialViews\CaseInformation.js" />
+    <Content Include="Scripts\PartialViews\demographic.js" />
+    <Content Include="Scripts\PartialViews\NonCompliantPayment.js" />
+    <Content Include="Scripts\PartialViews\paymentcertification.js" />
+    <Content Include="Scripts\alert-settings.js" />
+    <Content Include="Scripts\autoNumeric.js" />
+    <Content Include="Scripts\common.js" />
+    <None Include="Properties\PublishProfiles\Development.pubxml" />
+    <None Include="Properties\PublishProfiles\Production.pubxml" />
+    <None Include="Properties\PublishProfiles\Staging.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Scripts\jquery.mask.js" />
+    <Content Include="Scripts\jquery.mask.min.js" />
+    <Content Include="Scripts\modules\EditPayments.js" />
+    <Content Include="Scripts\modules\Aprobacion.js" />
+    <Content Include="Scripts\modules\UpdatePayments.js" />
+    <Content Include="Scripts\modules\RelationshipCategory.js" />
+    <Content Include="Scripts\modules\RelationshipType.js" />
+    <Content Include="Scripts\modules\PaymentConcept.js" />
+    <Content Include="Scripts\modules\Payments.js" />
+    <Content Include="Scripts\modules\PreexistingCase.js" />
+    <Content Include="Scripts\modules\UpdateThirdParties.js" />
+    <Content Include="Scripts\modules\ThirdParties.js" />
+    <Content Include="Scripts\modules\TransactionType.js" />
+    <Content Include="Scripts\modules\TransferType.js" />
+    <Content Include="Scripts\modules\PaymentClass.js" />
+    <Content Include="Scripts\modules\CivilStatus.js" />
+    <Content Include="Scripts\modules\InternetType.js" />
+    <Content Include="Scripts\modules\Gender.js" />
+    <Content Include="Scripts\modules\ApplyTo.js" />
+    <Content Include="Scripts\modules\AddressType.js" />
+    <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\modules\TableReferences.js" />
+    <Content Include="Scripts\Noty\packaged\jquery.noty.packaged.min.js" />
+    <Content Include="Scripts\Noty\jquery.noty.js" />
+    <Content Include="Scripts\Noty\jquery.noty.packaged.min.js" />
+    <Content Include="Scripts\Noty\layouts\bottom.js" />
+    <Content Include="Scripts\Noty\layouts\bottomCenter.js" />
+    <Content Include="Scripts\Noty\layouts\bottomLeft.js" />
+    <Content Include="Scripts\Noty\layouts\bottomRight.js" />
+    <Content Include="Scripts\Noty\layouts\center.js" />
+    <Content Include="Scripts\Noty\layouts\centerLeft.js" />
+    <Content Include="Scripts\Noty\layouts\centerRight.js" />
+    <Content Include="Scripts\Noty\layouts\inline.js" />
+    <Content Include="Scripts\Noty\layouts\top.js" />
+    <Content Include="Scripts\Noty\layouts\topCenter.js" />
+    <Content Include="Scripts\Noty\layouts\topLeft.js" />
+    <Content Include="Scripts\Noty\layouts\topRight.js" />
+    <Content Include="Scripts\Noty\packaged\promise.js" />
+    <Content Include="Scripts\Noty\themes\bootstrap.js" />
+    <Content Include="Scripts\Noty\themes\default.js" />
+    <Content Include="Scripts\Noty\themes\relax.js" />
+    <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\numeral\numeral.js" />
+    <Content Include="Scripts\numeral\numeral.min.js" />
+    <Content Include="Scripts\PartialViews\EditTransactionDetail.js" />
+    <Content Include="Scripts\PartialViews\paymentcertificationtab.js" />
+    <Content Include="Scripts\PartialViews\PaymentWithMoreThan500.js" />
+    <Content Include="Scripts\PartialViews\SearchCase.js" />
+    <Content Include="Scripts\PartialViews\PaymentsSumary.js" />
+    <Content Include="Scripts\PartialViews\CaseSearch.js" />
+    <Content Include="Scripts\PartialViews\EmployerProfile.js" />
+    <Content Include="Scripts\PartialViews\EmployerInformation.js" />
+    <Content Include="Scripts\PartialViews\EmployerGroup.js" />
+    <Content Include="Scripts\PartialViews\Address.js" />
+    <Content Include="Scripts\PartialViews\Events.js" />
+    <Content Include="Scripts\PartialViews\Alerts.js" />
+    <Content Include="Scripts\PartialViews\managefile.js" />
+    <Content Include="Scripts\PartialViews\payrollcfse.js" />
+    <Content Include="Scripts\PartialViews\payrollother.js" />
+    <Content Include="Scripts\PartialViews\SearchEmployerWithoutPolicy.js" />
+    <Content Include="Scripts\PartialViews\SearchInvIntEmployer.js" />
+    <Content Include="Scripts\plugins\canvas-to-blob.js" />
+    <Content Include="Scripts\plugins\canvas-to-blob.min.js" />
+    <Content Include="Scripts\plugins\purify.js" />
+    <Content Include="Scripts\plugins\purify.min.js" />
+    <Content Include="Scripts\plugins\sortable.js" />
+    <Content Include="Scripts\plugins\sortable.min.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Scripts\modules\desglose.ipp.js" />
+    <None Include="Service References\CaseWebservice\configuration91.svcinfo" />
+    <None Include="Service References\CaseWebservice\configuration.svcinfo" />
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.CaseFolderTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.ColumnInfoTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.ContentTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createACLResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createACLResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createCaseFolderFromXmlResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createCaseFolderFromXmlResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createCaseFolderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createCaseFolderResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createContentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createContentResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createDiscussionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createDiscussionResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createFileStoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createFileStoreResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createFormDataFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createFormDataFieldsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createRelatedFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createRelatedFieldsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createRepositoryObjectResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createRepositoryObjectResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createRoleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createRoleResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createTaskResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createTaskResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createUserResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createWorkFlowResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createWorkFlowResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createWorkItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.createWorkItemResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.deleteImageMarksResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.deleteImageMarksResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.deleteImagePageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.deleteImagePageResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.deleteImagePagesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.deleteImagePagesResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.deleteImageThumbnailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.deleteImageThumbnailResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.deleteRepositoryObjectResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.deleteRepositoryObjectResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.DiscussionTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.doQueryByNameExResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.doQueryByNameNoFormFieldsExResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.doQueryByNameNoFormFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.doQueryByNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.doQueryByScriptNameExResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.doQueryByScriptNameNoFormFieldsExResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.doQueryByScriptNameNoFormFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.doQueryByScriptNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.doQueryExResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.doQueryNoFormFieldsExResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.doQueryNoFormFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.doQueryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.FieldDefinitionTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.FileStoreTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.FmsRowSetTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.FmsRowSetWs.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.FmsRowTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.FmsValueDefinitionTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.FSVersionElementTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getAclsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getCaseFolderAsXmlResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getCaseFolderAsXmlResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getCaseFolderFieldResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getCaseFolderFieldResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getCaseFolderFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getCaseFolderFieldsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getCaseFolderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getCaseFolderResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getCaseFolderTemplatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getContentByNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getContentByNameResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getContentElementsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getContentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getContentResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getContentsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getDiscussionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getDiscussionResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getDiscussionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getDocumentElementsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getElementDiscussionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getFileByNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getFileByNameResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getFileRenditionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getFileRenditionResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getFileResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getFileStoreFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getFileStoreFieldsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getFileStoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getFileStoreResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getFileStoreTemplatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getFormDataFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getFormDataFieldsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getImageMarksResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getImageMarksResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getImagePageCountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getImagePageCountResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getImagePageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getImagePageResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getImageThumbnailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getImageThumbnailResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getPartialFileRenditionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getPartialFileRenditionResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getPartialFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getPartialFileResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getQueryCategoriesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getQueryColumnInfoByScriptNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getQueryColumnInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getQueryFormFieldsByScriptNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getQueryFormFieldsByScriptNameResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getQueryFormFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getQueryFormFieldsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getQueryListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getRelatedFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getRepositoryContentPageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getRepositoryContentPageResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getRepositoryContentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getRepositoryContentResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getRepositoryFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getRepositoryFieldsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getRolesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getTaskByNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getTaskByNameResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getTaskElementsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getTaskResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getTaskResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getTasksResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getTopicsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getUserAttributeFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getUserAttributeFieldsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getUserResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getUsersForRoleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getValuesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getVersionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getWorkFlowFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getWorkFlowFieldsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getWorkFlowTemplatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getWorkItemEnvelopeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getWorkItemEnvelopeResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getWorkItemFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.getWorkItemFieldsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.insertImagePageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.insertImagePageResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.lockFileStoreExResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.lockFileStoreExResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.lockFileStoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.lockFileStoreResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.lockRepositoryObjectResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.lockRepositoryObjectResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.lockWorkItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.lockWorkItemResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.moveImagePagesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.moveImagePagesResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.putBuddyInCaptureResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.putBuddyInCaptureResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.putFileBuddyInCaptureResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.putFileBuddyInCaptureResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.putFileByNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.putFileByNameResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.putFileExResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.putFileExResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.putFileInCaptureResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.putFileInCaptureResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.putFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.putFileResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.putImageMarksResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.putImageMarksResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.putImageThumbnailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.putImageThumbnailResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.putRepositoryContentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.putRepositoryContentResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.QueryTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.releaseWorkItemFromErrorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.releaseWorkItemFromErrorResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.removeACLByRoleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.removeACLByRoleResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.removeACLResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.removeACLResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.removeCaseFolderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.removeCaseFolderResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.removeContentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.removeContentResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.removeDiscussionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.removeDiscussionResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.removeFileStoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.removeFileStoreResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.removeFormDataFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.removeFormDataFieldsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.removeRelatedFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.removeRelatedFieldsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.removeRoleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.removeRoleResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.removeTaskResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.removeTaskResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.removeUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.removeUserResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.removeVersionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.removeVersionResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.removeWorkItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.removeWorkItemResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.replaceImagePageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.replaceImagePageResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.routeRepositoryObjectResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.routeRepositoryObjectResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.routeWorkItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.routeWorkItemResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.rpCreateContentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.rpCreateContentResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.rpCreateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.rpCreateResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.rpDeleteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.rpDeleteResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.rpDoActionGetDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.rpDoActionGetDataResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.rpDoActionPostDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.rpDoActionPostDataResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.rpDoActionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.rpDoActionResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.rpGetContentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.rpGetContentResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.rpGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.rpGetResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.rpSetContentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.rpSetContentResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.rpSetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.rpSetResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.sendWorkItemToWorkstepResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.sendWorkItemToWorkstepResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setACLforRoleConditionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setACLforRoleConditionsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setACLforRoleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setACLforRoleResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setCaseFolderFieldResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setCaseFolderFieldResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setCaseFolderFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setCaseFolderFieldsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setCaseFolderPropertyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setCaseFolderPropertyResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setCaseFolderReadHistoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setCaseFolderReadHistoryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setCaseFolderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setCaseFolderResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setContentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setContentResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setDiscussionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setDiscussionResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setFileStoreFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setFileStoreFieldsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setFileStoreReadHistoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setFileStoreReadHistoryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setFileStoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setFileStoreResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setFormDataFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setFormDataFieldsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setImageOrientationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setImageOrientationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setRelatedFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setRelatedFieldsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setRepositoryFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setRepositoryFieldsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setRolesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setRolesResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setTaskResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setTaskResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setUserAttributeFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setUserAttributeFieldsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setUserResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setWorkItemFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.setWorkItemFieldsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.TaskTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.unLockFileStoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.unLockFileStoreResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.unlockRepositoryObjectResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.unlockRepositoryObjectResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.unLockWorkItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.unLockWorkItemResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.UserTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.userWsEvent1Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.userWsEvent1Response1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.userWsEvent2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.userWsEvent2Response1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.userWsEvent3Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.userWsEvent3Response1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.VersionTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CaseWebservice\Nagnoi.SiC.Web.CaseWebservice.WorkFlowTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\CaseWebservice\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Views\PaymentCertification\Certification.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_CaseInfo.cshtml" />
+    <Content Include="Views\Shared\_PayrollOther.cshtml" />
+    <Content Include="Views\Shared\_PaymentsSumary.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\EmployerAddressResult.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Address.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\EmployerInformationResult.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Contact.cshtml" />
+    <Content Include="Views\Shared\_SearchInvIntEmployer.cshtml" />
+    <Content Include="Views\Shared\_SearchEmployerWithoutPolicy.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\EmployerInformationResultReadOnly.cshtml" />
+    <Content Include="Views\Payments\Index.cshtml" />
+    <Content Include="Views\Shared\_SearchPayments.cshtml" />
+    <Content Include="Views\Payments\Resumen.cshtml" />
+    <Content Include="Views\Shared\_CaseLayout.cshtml" />
+    <Content Include="Views\Case\Index.cshtml" />
+    <Content Include="Views\Case\Resumen.cshtml" />
+    <None Include="Service References\CaseWebservice\WsServiceEJB.wsdl" />
+    <Content Include="Views\Case\ResumenTab.cshtml" />
+    <Content Include="Views\Shared\_ReportBtn.cshtml" />
+    <Content Include="Views\Shared\_SinDatos.cshtml" />
+    <Content Include="Views\ReferenceTables\Index.cshtml" />
+    <Content Include="Views\ReferenceTables\_AddressType.cshtml" />
+    <Content Include="Views\ReferenceTables\_RelationshipCategory.cshtml" />
+    <Content Include="Views\ReferenceTables\_Gender.cshtml" />
+    <Content Include="Views\ReferenceTables\_InternetType.cshtml" />
+    <Content Include="Views\ReferenceTables\_CivilStatus.cshtml" />
+    <Content Include="Views\ReferenceTables\_PaymentClass.cshtml" />
+    <Content Include="Views\ReferenceTables\_TransferType.cshtml" />
+    <Content Include="Views\ReferenceTables\_TransactionType.cshtml" />
+    <Content Include="Views\ReferenceTables\_PaymentConcept.cshtml" />
+    <Content Include="Views\ReferenceTables\_RelationshipType.cshtml" />
+    <Content Include="Views\ReferenceTables\_ApplyTo.cshtml" />
+    <Content Include="Views\Payments\Payment.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\PaymentRegistration\_PaymentPeremptory.cshtml" />
+    <Content Include="Views\PaymentRegistration\_PaymentInvestment.cshtml" />
+    <Content Include="Views\PaymentRegistration\_PaymentIpp.cshtml" />
+    <Content Include="Views\Approval\_ApprovalPeremptories.cshtml" />
+    <Content Include="Views\Approval\_ApprovalInvestments.cshtml" />
+    <Content Include="Views\Approval\_ApprovalIpps.cshtml" />
+    <Content Include="Views\Preexisting\Index.cshtml" />
+    <Content Include="Views\Shared\SearchCase\_Box.cshtml" />
+    <Content Include="Views\Preexisting\Case.cshtml" />
+    <Content Include="Views\PaymentRegistration\_PaymentPendingDiet.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Views\Shared\_HeaderCase.cshtml" />
+    <Content Include="Views\Approval\_ApprovalPendingDiets.cshtml" />
+    <Content Include="Views\Approval\_ApprovalThirds.cshtml" />
+    <Content Include="Views\PaymentCertification\Index.cshtml" />
+    <Content Include="Views\Shared\SearchCase\_Form.cshtml" />
+    <Content Include="Views\Shared\SearchCase\_Modal.cshtml" />
+    <Content Include="Views\Shared\SearchCase\_ResultBox.cshtml" />
+    <Content Include="Views\Shared\SearchCase\_ResultTable.cshtml" />
+    <Content Include="Views\Shared\SearchCase\_ResultTableWithBtns.cshtml" />
+    <Content Include="Views\Shared\_EditTransactionDetail.cshtml" />
+    <Content Include="Views\Case\_SearchBox.cshtml" />
+    <Content Include="Views\PaymentRegistration\Index.cshtml" />
+    <Content Include="Views\ThirdPartyPayment\Index.cshtml" />
+    <Content Include="Views\Approval\Index.cshtml" />
+    <Content Include="Views\PaymentRegistration\_PaymentLawyer.cshtml" />
+    <Content Include="Views\Case\CertificationTab.cshtml" />
+    <Content Include="Views\Queries\Index.cshtml" />
+    <Content Include="Views\Queries\_PaymentsMore500.cshtml" />
+    <Content Include="Views\Queries\_NonCompliantPayment.cshtml" />
+    <Content Include="Views\Queries\_FindCasesInDormantOrExpunged.cshtml" />
+    <Content Include="Views\Queries\PaymentsWithMoreThan500.cshtml" />
+    <Content Include="Views\Queries\NonCompliantPayments.cshtml" />
+    <Content Include="Views\Queries\CasesInDormantOrExpunged.cshtml" />
+    <Content Include="Views\Queries\_GetDisabilitySummary.cshtml" />
+    <Content Include="Views\Queries\_IPPSummary.cshtml" />
+    <Content Include="Views\Queries\_ITPSummary.cshtml" />
+    <Content Include="Views\Queries\_InversionSummary.cshtml" />
+    <Content Include="Views\Queries\_BeneficiarySummary.cshtml" />
+    <Content Include="Views\Queries\_CaseInformation.cshtml" />
+    <Content Include="Views\Approval\_ApprovalLawyers.cshtml" />
+    <Content Include="Views\AdjustmentEBT\Index.cshtml" />
+    <Content Include="Views\AdjustmentEBT\Approve.cshtml" />
+    <Content Include="Views\AdjustmentEBT\Document.cshtml" />
+    <Content Include="Views\Queries\TransactionInformation.cshtml" />
+    <Content Include="Views\Queries\FindCaseTransactionSummary.cshtml" />
+    <Content Include="Views\Adjustments\Index.cshtml" />
+    <Content Include="Views\Preexisting\_AwardAmount.cshtml" />
+    <Content Include="Views\Preexisting\_PreExistingCases.cshtml" />
+    <Content Include="Views\Preexisting\_OtherPreExistingCases.cshtml" />
+    <Content Include="Views\Demographic\Index.cshtml" />
+    <Content Include="Views\Approval\_ApprovalITPs.cshtml" />
+    <Content Include="Views\Approval\_ApprovalMuerte.cshtml" />
+    <Content Include="Views\Shared\_DesgloseIPP.cshtml" />
+    <Content Include="Views\Preexisting\_ModalTransactionDetail.cshtml" />
+    <Content Include="Views\Demographic\_UpdateDataParticipant.cshtml" />
+    <Content Include="Views\Demographic\_UpdateRow1.cshtml" />
+    <Content Include="Views\Demographic\_UpdateRow2.cshtml" />
+    <Content Include="Views\Demographic\_UpdateRow3.cshtml" />
+    <Content Include="Views\Demographic\_UpdateRow4.cshtml" />
+    <Content Include="Views\Demographic\_UpdateRow5.cshtml" />
+    <Content Include="Views\Demographic\_UpdateRow6.cshtml" />
+    <Content Include="Views\Demographic\_UpdateRow7.cshtml" />
+    <Content Include="Views\Demographic\_UpdateAddress.cshtml" />
+    <Content Include="Views\Demographic\_UpdatePaymentInfo.cshtml" />
+    <Content Include="Views\Demographic\_UpdateComment.cshtml" />
+    <Content Include="Views\Demographic\_UpdateModifyReason.cshtml" />
+    <Content Include="Views\Demographic\_Buttons.cshtml" />
+    <Content Include="Views\Demographic\_UpdateData.cshtml" />
+    <Content Include="Views\Demographic\_UpdateLGRow1.cshtml" />
+    <Content Include="Views\Demographic\_UpdateLGRow2.cshtml" />
+    <Content Include="Views\Demographic\_ButtonsParticipant.cshtml" />
+    <Content Include="Views\Demographic\_UpdateParticipantTable.cshtml" />
+    <Content Include="Views\Approval\_ApprovalPostMortemITP.cshtml" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\CaseWebservice\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Domain.Core\Domain.Core.csproj">
+      <Project>{85267196-b790-4df0-b537-280c9fae0d87}</Project>
+      <Name>Domain.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure.Core\Infrastructure.Core.csproj">
+      <Project>{0387c973-ed6b-4787-80d5-3d7c541e8389}</Project>
+      <Name>Infrastructure.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure.Web\Infrastructure.Web.csproj">
+      <Project>{f8503abd-58c4-4323-8a08-4d94d45c282e}</Project>
+      <Name>Infrastructure.Web</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>80</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/Sic.Web</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost/Sic.Web</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <servers defaultServer="">
+            <server name="SelfHostServer" exePath="" cmdArgs="" url="http://localhost:80/" workingDir="" />
+          </servers>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

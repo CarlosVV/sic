@@ -1,0 +1,50 @@
+﻿@using Nagnoi.SiC.Web.Models.PaymentCertification
+@model CertificationViewModel
+
+
+<script>
+    @*//var _model = @Html.Raw(Json.Encode(Model));*@
+    var _caseNumber = @Html.Raw(Json.Encode(ViewBag.CaseNumber));
+    var _caseKey = @Html.Raw(Json.Encode(ViewBag.CaseKey));
+    var _caseDetailId = @Html.Raw(Json.Encode(ViewBag.CaseDetailId));
+
+    var _caseDetailData = function () {
+        return {
+            "caseNumber": _caseNumber,
+            "caseKey": _caseKey,
+            "caseDetailId": _caseDetailId
+        };
+    }
+</script>
+@{
+    ViewBag.Title = "Certificación de Pagos";
+}
+
+<div class="homePage">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="page-header text-danger">
+                <h1>Cantidades Adeudadas o Descuentos Adicionales</h1>
+            </div>
+        </div>
+    </div>
+
+    @{
+        Html.RenderAction("SearchBox", "Case");
+    }
+    
+    <form id="certification-panel" class="hidden">
+        @Html.Partial("Certification")
+    </form>
+</div>
+
+@section Scripts {
+    @*@Scripts.Render("~/bundles/Search")*@
+    @Scripts.Render("~/bundles/numeral")
+    @Scripts.Render("~/bundles/PaymentCertification")
+}
+
+@section Styles{
+    @Styles.Render("~/content/PaymentCertification")
+    @*@Styles.Render("~/content/paymentcertification.css")*@
+}

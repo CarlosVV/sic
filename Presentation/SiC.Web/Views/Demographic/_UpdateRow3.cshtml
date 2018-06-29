@@ -1,0 +1,47 @@
+﻿@model Nagnoi.SiC.Web.Models.Demographic.DemographicViewModel
+
+<div class="row">
+    <div class="col-md-2">
+        <div class="form-group">
+            <label class="control-label" for="legalGuardian">@Model.ResourceService.GetResourceString("Demografico.TutorLegal.label.text")</label>
+            <select class="form-control" id="legalGuardian" name="legalGuardian"></select>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <div class="form-group" id="deceaseDateInfo">
+            <label class="control-label" for="deceaseDate">@Model.ResourceService.GetResourceString("Demografico.FechaDeDefuncion.label.text")</label>
+            <div class="input-group date" data-provide="datepicker">
+                <input type="text" class="form-control" id="deceaseDate" name="deceaseDate">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label class="control-label" for="civilStatus">@Model.ResourceService.GetResourceString("Demografico.EstadoCivil.label.text")</label>
+            @Html.DropDownListFor(model => Model.CivilStatusId, Model.CivilStatus, new { @class = "form-control search", @id = "civilStatus", Name = "civilStatus" })
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <div class="form-group" id="marriageDateInfo" hidden>
+            <label class="control-label" for="marriageDate">@Model.ResourceService.GetResourceString("Demografico.Desde.label.text")</label>
+            <div class="input-group date" data-provide="datepicker">
+                <input type="text" class="form-control" id="marriageDate" name="marriageDate">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group" id="otherRelationship" hidden>
+                <label class="control-label" for="otherRelationship">@Model.ResourceService.GetResourceString("Demografico.Otra.label.text")</label>
+                <input class="form-control" id="otherRelationship" name="otherRelationship" type="text" maxlength="25" />
+            </div>
+        </div>
+    </div>
+</div>

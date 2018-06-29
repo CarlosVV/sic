@@ -1,0 +1,30 @@
+﻿<div class="panel panel-default" id="DemographicData" hidden>
+    <div class="panel-heading" role="tab" id="heading1">
+        <h4 class="panel-title">
+            <a role="button" data-toggle="collapse" href="#link1" aria-expanded="true" aria-controls="collapse3">
+                <strong class="text-danger">@Model.ResourceService.GetResourceString("Demografico.Encabezado.label.text")</strong>
+            </a>
+        </h4>
+    </div>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "updateForm" }))
+    { 
+        <fieldset>
+            <div id="link1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading1">
+                <div class="panel-body">
+                    @Html.Partial("_UpdateRow1")
+                    @Html.Partial("_UpdateRow2")
+                    @Html.Partial("_UpdateRow3")
+                    @Html.Partial("_UpdateRow4")
+                    @Html.Partial("_UpdateRow5")
+                    @Html.Partial("_UpdateRow6")
+                    @Html.Partial("_UpdateRow7")
+                    @Html.Partial("_UpdateAddress")
+                    @Html.Partial("_UpdatePaymentInfo")
+                    @Html.Partial("_UpdateComment")
+                    @Html.Partial("_UpdateModifyReason")
+                    @Html.Partial("_Buttons")
+                </div>
+            </div>
+        </fieldset>
+    }
+</div>

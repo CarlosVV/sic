@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [UnitTest]
+    AUTHORIZATION [dbo];
+

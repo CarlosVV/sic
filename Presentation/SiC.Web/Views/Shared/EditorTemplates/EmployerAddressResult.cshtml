@@ -1,0 +1,21 @@
+﻿@using Patronos.WebApplication.Helpers
+@model EmployerAddressResult
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1 class="panel-title">Dirección</h1>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        @Html.EditorFor(m => m.phisicalAddress)
+                    </div>
+                    <div class="col-md-6">
+                        @Html.EditorFor(m => m.postalAddress)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

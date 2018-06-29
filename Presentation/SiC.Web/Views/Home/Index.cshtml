@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Inicio";
+}
+
+@section Styles{
+    @Styles.Render("~/bundles/datepicker/css")
+}
+
+
+@section Scripts {
+    @*<script type="text/javascript">
+        var UserRegion = "@ViewBag.UserRegion";
+        var AssignedToUser = "@ViewBag.AssignedToUser";
+    </script>*@
+
+    @Scripts.Render("~/bundles/datepicker")
+
+    @*@if (!HttpContext.Current.IsDebuggingEnabled)
+    {
+        if (User.IsInRole("Supervisores_de_Formalizacion"))
+        {
+            @Scripts.Render("~/bundles/SearchEmployerWithoutPolicy");
+        }
+        else if (!User.IsInRole("Administrador_de_Integracion_de_Patronos"))
+        {
+            @Scripts.Render("~/bundles/SearchInvIntEmployer");
+        }
+    }
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+        @Scripts.Render("~/bundles/SearchEmployerWithoutPolicy");
+    }*@
+}
+
+<div class="homePage">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header text-danger">
+                <h1>Sistema de Compensaciones <small>SiC</small></h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron">
+                <p>SIC</p>
+            </div>
+        </div>
+    </div>
+    @*@if (!HttpContext.Current.IsDebuggingEnabled)
+    {
+        if (User.IsInRole("Supervisores_de_Formalizacion"))
+        {
+            @Html.Partial("_SearchEmployerWithoutPolicy");
+        }
+        else if (!User.IsInRole("Administrador_de_Integracion_de_Patronos"))
+        {
+            @Html.Partial("_SearchInvIntEmployer");
+        }
+        else
+        {
+            <script>window.location.href = '@Url.Action("AlertSetting", "AlertDetail")'</script>
+        }
+    }
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+        @Html.Partial("_SearchEmployerWithoutPolicy");
+    }*@
+</div>

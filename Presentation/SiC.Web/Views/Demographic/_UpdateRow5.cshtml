@@ -1,0 +1,45 @@
+﻿@model Nagnoi.SiC.Web.Models.Demographic.DemographicViewModel
+
+<div class="row" id="row5Beneficiary">
+    <div class="col-md-2">
+        <div class="form-group">
+            <label class="control-label" for="isDisability">@Model.ResourceService.GetResourceString("Demografico.Incapacitado.label.text")</label>
+            <div>
+                <label class="radio-inline">
+                    <input type="radio" name="isDisability" id="disabilityTrue" value="true"> Sí
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="isDisability" id="disabilityFalse" class="radioFalse" value="false"> No
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <div class="form-group" id="isRehabilitatedInfo" hidden>
+            <label class="control-label" for="isRehabilitated">@Model.ResourceService.GetResourceString("Demografico.Rehabilitado.label.text")</label>
+            <div>
+                <label class="radio-inline">
+                    <input type="radio" name="isRehabilitated" id="rehabilitatedTrue" value="true"> Sí
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="isRehabilitated" id="rehabilitatedFalse" class="radioFalse" value="false"> No
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <div class="form-group" id="isWorkingInfo" hidden>
+            <label class="control-label" for="isWorking">@Model.ResourceService.GetResourceString("Demografico.Trabaja.label.text")</label>
+            <div>
+                <label class="radio-inline">
+                    <input type="radio" name="isWorking" id="workingTrue" value="true"> Sí
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="isWorking" id="workingFalse" class="radioFalse" value="false"> No
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+﻿@model Nagnoi.SiC.Web.Models.Demographic.DemographicViewModel
+
+<div class="row">
+    @* row: 12 *@
+    <div class="col-md-2">
+        <div class="form-group">
+            <label class="control-label" for="paymentType">@Model.ResourceService.GetResourceString("Demografico.MetodoDePago.label.text")</label>
+            @Html.DropDownListFor(model => Model.TransferTypeId, Model.TransferType, new { @class = "form-control search paymentType", Name = "paymentType" })
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label class="control-label" for="paymentStatus">@Model.ResourceService.GetResourceString("Demografico.EstatusDePago.label.text")</label>
+            <input class="form-control paymentStatus" name="paymentStatus" type="text" maxlength="75" readonly />
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <div class="form-group suspensionDateInfo" hidden>
+            <label class="control-label" for="suspensionDate">@Model.ResourceService.GetResourceString("Demografico.FechaDeSuspension.label.text")</label>
+            <input class="form-control suspensionDate" name="suspensionDate" type="date"  readonly />
+        </div>
+        <div class="form-group restartDateInfo" hidden>
+            <label class="control-label" for="suspensionDate">@Model.ResourceService.GetResourceString("Demografico.FechaDeReanudacion.label.text")</label>
+            <input class="form-control suspensionDate" name="suspensionDate" type="date" readonly />
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <div class="form-group suspensionReasonInfo" hidden>
+            <label class="control-label" for="suspensionReason">@Model.ResourceService.GetResourceString("Demografico.RazonSuspension.label.text")</label>
+            <input class="form-control suspensionReason" name="suspensionReason" type="text" maxlength="75"  readonly />
+        </div>
+    </div>
+</div>

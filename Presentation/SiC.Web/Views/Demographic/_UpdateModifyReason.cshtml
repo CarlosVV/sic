@@ -1,0 +1,17 @@
+﻿@model Nagnoi.SiC.Web.Models.Demographic.DemographicViewModel
+<div class="row">
+    @* row: 14 *@
+    <div class="col-md-2">
+        <div class="form-group">
+            <label class="control-label" for="modifyReason">@Model.ResourceService.GetResourceString("Demografico.RazonDeModificacion.label.text")</label>
+            @Html.DropDownListFor(model => Model.ModifiedReasonId, Model.ModifiedReason, new { @class = "form-control search modifiedReason", Name = "modifiedReason" })
+        </div>
+    </div>
+    <div cxczdvxcv cxvlass="col-md-1"></div>
+    <div class="col-md-2">
+        <div class="form-group otherReasonInfo" hidden>
+            <label class="control-label" for="otherReason">@Model.ResourceService.GetResourceString("Demografico.Otra.label.text")</label>
+            <input class="form-control otherReason" name="otherReason" type="text" maxlength="250" />
+        </div>
+    </div>
+</div>

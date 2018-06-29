@@ -1,0 +1,118 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="panel-title">
+                    <strong class="text-danger">Criterios de Búsqueda Patronos Sin Póliza</strong>
+                    <a id="clearBtn" class="btn btn-warning btn-xs pull-right"><span class="fa fa-eraser"></span></a>
+                </span>
+            </div>
+            <div id="formPanel" class="panel-body">
+                <form id="searchWithoutPolicyForm">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label" for="name">Nombre</label>
+                                        <input class="form-control" id="name" name="name" type="text" maxlength="75" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label" for="legalName">Haciendo negocios como (DBA)</label>
+                                        <input class="form-control" id="legalName" name="legalName" type="text" maxlength="60" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="ein">EIN</label>
+                                        <input class="form-control" id="ein" name="ein" type="text" maxlength="13" />
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="employerBk">No. Cuenta UI</label>
+                                        <input class="form-control" id="employerBk" name="employerBk" type="text" maxlength="10" />
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="phone">Teléfono</label>
+                                        <input class="form-control" id="phone" name="phone" type="tel" maxlength="14" />
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="region">Ciudad</label>
+                                        @*@Html.DropDownList("Ciudad", new SelectList(SelectListItemRepo.GetCities(), "Id", "Name"), "", new { Id = "city", @class = "form-control" })*@
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row col-bottom">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="payrollFrom">Nómina desde</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">$</span>
+                                            <input id="payrollFrom" name="payrollFrom" type="text" min="0" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="payrollTo">Hasta</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">$</span>
+                                            <input id="payrollTo" name="payrollTo" type="text" min="0" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-md-offset-4 pulldown">
+                                    <input id="backBtn" type="button" class="btn btn-danger" value="Regresar" />
+                                    <input id="searchBtn" type="button" class="btn btn-success" value="Buscar" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="panel-title"><strong class="text-danger">Resultados</strong></span>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class='table-responsive'>
+                            <table id="EmployerWithoutPolicyDataTable" class="table table-striped table-bordered">
+                                <thead>
+                                    <tr class="active">
+                                        <th>Nombre</th>
+                                        <th>EIN</th>
+                                        <th>No. Cuenta UI</th>
+                                        <th>Fecha Identificado</th>
+                                        <th>Ciudad</th>
+                                        <th>NAICS</th>
+                                        <th>Nómina DTRH</th>
+                                        <th>Año</th>
+                                        <th>No. Empleados</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                                <tfoot></tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

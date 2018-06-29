@@ -1,0 +1,74 @@
+﻿@using Nagnoi.SiC.Web.Models.PaymentCertification
+@model CertificationViewModel
+
+<script>
+    @*//var _model = @Html.Raw(Json.Encode(Model));*@
+    var _caseNumber = @Html.Raw(Json.Encode(ViewBag.CaseNumber));
+    var _caseKey = @Html.Raw(Json.Encode(ViewBag.CaseKey));
+
+    var data = function () {
+        return {
+            "CaseNumber": _caseNumber,
+            "CaseKey": _caseKey,
+        };
+    }
+</script>
+
+
+<!DOCTYPE html>
+<div class="row">
+    <div class="col-md-12">
+        <div class="page-header text-danger">
+            <h1>Cantidades adeudadas o descuentos adicionales</h1>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class='table-responsive'>
+            <table id="tblInsert" class="display">
+                <thead>
+                    <tr class="active">
+                        @*<th></th>*@
+                        <th>@Model.ResourceService.GetResourceString("PagoCertificacion.NumeroDeCaso.header.text")</th>
+                        <th>@Model.ResourceService.GetResourceString("PagoCertificacion.Concepto.header.text")</th>
+                        <th>@Model.ResourceService.GetResourceString("PagoCertificacion.FechaDesde.header.text")</th>
+                        <th>@Model.ResourceService.GetResourceString("PagoCertificacion.FechaHasta.header.text")</th>
+                        <th>@Model.ResourceService.GetResourceString("PagoCertificacion.TipoPago.header.text")</th>
+                        <th>@Model.ResourceService.GetResourceString("PagoCertificacion.NumeroDeFactura.header.text")</th>
+                        <th>@Model.ResourceService.GetResourceString("PagoCertificacion.Cantidad.header.text")</th>
+                        <th></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="row">
+     <div class="col-md-9">
+        <div class="form-group">
+            <label class="control-label" for="txtComment">
+                Observaciones @*@Model.ResourceService.GetResourceString("PagoInv.Observaciones.label.text")*@
+            </label>
+            <p>
+                <textarea class="form-control" rows="5" id="txtComment" name="txtComment"></textarea>
+            </p>
+        </div>
+    </div>
+    <div class=" bottom-right col-md-3">
+        <div class="input-group">
+            <span class="input-group-addon">Monto Total $</span>
+            <input type="text" class="form-control text-right" aria-label="Monto Total" id="txtTotalAmount" disabled />
+        </div>
+    </div>
+</div>
+
+    @section Scripts {
+    @Scripts.Render("~/bundles/numeral")
+    @Scripts.Render("~/bundles/PaymentCertificationTab")
+    }
+
+
+    @section Styles{
+    @Styles.Render("~/content/PaymentCertification")
+}

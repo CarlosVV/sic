@@ -1,0 +1,74 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default" id="searchPanel">
+            <div class="panel-heading">
+                <span class="panel-title">
+                    <strong class="text-danger">Búsqueda de caso</strong>
+                    <a id="clearBtn" class="btn btn-warning btn-xs pull-right"><span class="fa fa-eraser"></span></a>
+                </span>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label" for="name">Nombre</label>
+                            <input class="form-control" id="name" name="name" type="text" maxlength="75" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label" for="ssn">SSN</label>
+                            <input class="form-control" id="ssn" name="ssn" type="text" maxlength="75" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label" for="ebt">Numero de cuenta EBT</label>
+                            <input class="form-control" id="ebt" name="ebt" type="number" maxlength="75" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label" for="caso">Número de Caso</label>
+                            <input class="form-control" id="caso" name="caso" type="number" maxlength="75" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-10">
+                        <input class="btn btn-success btn-block" type="button" value="Buscar" id="searchBtn" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default" id="resultsPanel" style="display:none">
+            <div class="panel-heading">
+                <span class="panel-title"><strong class="text-danger">Resultados</strong></span>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class='table-responsive'>
+                            <table id="CasesTable" class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr class="active">
+                                        <th>Nombre</th>
+                                        <th>SSN</th>
+                                        <th>Número de cuenta EBT</th>
+                                        <th>Número de Caso</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                                <tfoot></tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
